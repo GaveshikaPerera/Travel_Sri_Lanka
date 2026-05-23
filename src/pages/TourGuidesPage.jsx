@@ -3,16 +3,19 @@ import HeroSection from "../components/HeroSection";
 import GuideCard from "../components/GuideCard";
 import Footer from "../components/Footer";
 import guides from "../data/guides";
+import { Search } from "lucide-react";
+
 
 const TourGuidesPage = () => {
   return (
     <div className="bg-[#11212D] flex justify-center">
 
-      <div className="w-[1280px] min-h-screen bg-[#11212D]">
+      <div className="w-full min-h-screen bg-[#11212D]">
 
         <Navbar />
 
         <HeroSection />
+        
 
         {/* Guides */}
         <section className="px-8 mt-20">

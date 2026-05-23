@@ -1,7 +1,6 @@
 const Navbar = () => {
   return (
-    <nav className="w-full h-[80px] bg-[#2B3A47] flex items-center justify-between px-10">
-
+    <nav className="w-full h-[80px] bg-[#2B3A47] flex items-center justify-between px-10 m-0"> {/* Added m-0 */}
       {/* LOGO */}
       <div className="text-white">
         <h1 className="text-[28px] font-bold leading-none">
@@ -15,8 +14,7 @@ const Navbar = () => {
 
       {/* MENU ITEMS */}
       <div className="flex items-center gap-10 text-white text-[15px]">
-
-        <a href="#" className="hover:text-[#00C896]" >
+        <a href="#" className="hover:text-[#00C896]">
           Home
         </a>
 
@@ -24,7 +22,7 @@ const Navbar = () => {
           Hotels
         </a>
 
-        <a href="#" className="hover:text-[#00C896]" >
+        <a href="#" className="hover:text-[#00C896]">
           Transport
         </a>
 
@@ -46,11 +44,7 @@ const Navbar = () => {
         <a href="#" className="hover:text-[#00C896]">
           Contact us
         </a>
-
       </div>
-
-     
-
     </nav>
   );
 };
