@@ -24,7 +24,7 @@ const Navbar = () => {
           Hotels
         </a>
 
-        <a href="#" className="hover:text-[#00C896]">
+        <a href="#" className="hover:text-[#00C896]" >
           Transport
         </a>
 
