@@ -1,40 +1,81 @@
+import { getNames } from "country-list";
+
+const countries = getNames();
+
 export default function AccountStep({ next }) {
   return (
     <div className="form-card">
-
       <h2>Sign up as Guide</h2>
 
+      {/* First Name & Last Name */}
       <div className="grid-2">
-        <input placeholder="First Name" />
-        <input placeholder="Last Name" />
+        <input
+          type="text"
+          placeholder="First Name"
+        />
+
+        <input
+          type="text"
+          placeholder="Last Name"
+        />
       </div>
 
-      <input placeholder="Email" />
+      {/* Email */}
+      <input
+        type="email"
+        placeholder="Email"
+      />
 
+      {/* Password */}
       <input
         type="password"
         placeholder="Password"
       />
 
+      {/* Confirm Password */}
       <input
         type="password"
         placeholder="Confirm Password"
       />
 
+      {/* Country & Mobile */}
       <div className="grid-2">
-        <input placeholder="Country" />
-        <input placeholder="Mobile" />
+        <select defaultValue="">
+          <option value="" disabled>
+            Select Country
+          </option>
+
+          {countries.map((country) => (
+            <option
+              key={country}
+              value={country}
+            >
+              {country}
+            </option>
+          ))}
+        </select>
+
+        <input
+          type="tel"
+          placeholder="Mobile Number"
+        />
       </div>
 
-      <label>
+      {/* Terms & Conditions */}
+      <label className="checkbox-label">
         <input type="checkbox" />
-        I agree to Terms & Conditions
+        <span>
+          I agree to the Terms & Conditions
+        </span>
       </label>
 
-      <button onClick={next}>
+      {/* Next Button */}
+      <button
+        className="next-btn"
+        onClick={next}
+      >
         Next
       </button>
-
     </div>
   );
 }
