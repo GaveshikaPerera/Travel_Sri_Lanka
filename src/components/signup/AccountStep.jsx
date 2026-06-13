@@ -7,7 +7,7 @@ export default function AccountStep({ next }) {
     <div className="form-card">
       <h2>Sign up as Guide</h2>
 
-      {/* First Name & Last Name */}
+      
       <div className="grid-2">
         <input
           type="text"
@@ -20,29 +20,29 @@ export default function AccountStep({ next }) {
         />
       </div>
 
-      {/* Email */}
+      
       <input
         type="email"
         placeholder="Email"
       />
 
-      {/* Password */}
+     
       <input
         type="password"
         placeholder="Password"
       />
 
-      {/* Confirm Password */}
+      
       <input
         type="password"
         placeholder="Confirm Password"
       />
 
-      {/* Country & Mobile */}
+    
       <div className="grid-2">
         <select defaultValue="">
           <option value="" disabled>
-            Select Country
+            Country
           </option>
 
           {countries.map((country) => (
@@ -61,7 +61,7 @@ export default function AccountStep({ next }) {
         />
       </div>
 
-      {/* Terms & Conditions */}
+     
       <label className="checkbox-label">
         <input type="checkbox" />
         <span>
@@ -69,7 +69,7 @@ export default function AccountStep({ next }) {
         </span>
       </label>
 
-      {/* Next Button */}
+     
       <button
         className="next-btn"
         onClick={next}

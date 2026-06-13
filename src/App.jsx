@@ -1,55 +1,27 @@
 import { Routes, Route } from "react-router-dom";
 
 import TourGuidesPage from "./pages/TourGuidesPage";
-import GuideSignup from "./pages/GuideSignup";
-import AccountStep from "./components/signup/AccountStep";
-import PersonalInfoStep from "./components/signup/PersonalInfoStep";
-import ProfessionalInfoStep from "./components/signup/ProfessionalInfoStep";
-import PricingStep from "./components/signup/PricingStep";
+import GuideProfilePage from "./pages/GuideProfilePage";
+import GuideMessagePage from "./pages/GuideMessagePage";
 
 function App() {
   return (
     <Routes>
-      {/* Tour Guides Listing Page */}
-      <Route path="/" element={<TourGuidesPage />} />
-
-      {/* Full Multi-Step Signup Page */}
-      <Route path="/signup" element={<GuideSignup />} />
-
-      {/* Individual Steps for Testing */}
       <Route
-        path="/signup1"
-        element={<AccountStep next={() => {}} />}
+        path="/"
+        element={<TourGuidesPage />}
       />
 
       <Route
-        path="/signup2"
-        element={
-          <PersonalInfoStep
-            next={() => {}}
-            prev={() => {}}
-          />
-        }
+        path="/guide/:id"
+        element={<GuideProfilePage />}
       />
 
       <Route
-        path="/signup3"
-        element={
-          <ProfessionalInfoStep
-            next={() => {}}
-            prev={() => {}}
-          />
-        }
+        path="/guide/:id/message"
+        element={<GuideMessagePage />}
       />
 
-      <Route
-        path="/signup4"
-        element={
-          <PricingStep
-            prev={() => {}}
-          />
-        }
-      />
     </Routes>
   );
 }

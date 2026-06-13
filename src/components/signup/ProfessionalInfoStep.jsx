@@ -7,15 +7,15 @@ export default function ProfessionalInfoStep({
 
       <h2>Professional Info</h2>
 
+      <input
+        placeholder="Guide License Number"
+      />
       <select>
         <option>
           Years of Experience
         </option>
       </select>
 
-      <input
-        placeholder="Guide License Number"
-      />
 
       <div className="grid-2">
 
