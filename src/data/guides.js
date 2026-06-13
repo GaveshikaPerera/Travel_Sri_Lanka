@@ -2,6 +2,10 @@ import guide1 from "../assets/guide1.jpg";
 import guide2 from "../assets/guide2.jpg";
 import guide3 from "../assets/guide3.jpg";
 import guide4 from "../assets/guide4.jpg";
+import guide5 from "../assets/guide5.jpg";
+import guide6 from "../assets/guide6.jpg";
+import guide7 from "../assets/guide7.jpg";
+import guide8 from "../assets/guide8.jpg";
 
 const guides = [
   {
@@ -14,8 +18,8 @@ const guides = [
     reviews: 128,
     experience: "Since 2015",
     location: "Colombo, Anuradhapura, Galle, Kandy",
-    about:
-      "Started in 2004, experienced chauffeur guide licensed by Sri Lanka Tourism Board with years of experience serving tourists from around the world.",
+    about: "Started in 2004, experienced chauffeur guide licensed by Sri Lanka Tourism Board with years of experience serving tourists from around the world.",
+    specialty: "Cultural & Heritage Tours",
   },
   {
     id: 2,
@@ -27,8 +31,8 @@ const guides = [
     reviews: 95,
     experience: "Since 2017",
     location: "Kandy, Ella, Nuwara Eliya",
-    about:
-      "Specialized in hill country tours, cultural tours and adventure experiences.",
+    about: "Specialized in hill country tours, cultural tours and adventure experiences.",
+    specialty: "Hill Country & Adventure",
   },
   {
     id: 3,
@@ -40,8 +44,8 @@ const guides = [
     reviews: 110,
     experience: "Since 2014",
     location: "Sigiriya, Dambulla, Polonnaruwa",
-    about:
-      "Experienced guide focusing on heritage and archaeological tours.",
+    about: "Experienced guide focusing on heritage and archaeological tours.",
+    specialty: "Heritage & Archaeology",
   },
   {
     id: 4,
@@ -53,8 +57,60 @@ const guides = [
     reviews: 88,
     experience: "Since 2016",
     location: "Galle, Mirissa, Bentota",
-    about:
-      "Expert in southern coastal tours and wildlife experiences.",
+    about: "Expert in southern coastal tours and wildlife experiences.",
+    specialty: "Coastal & Wildlife",
+  },
+  {
+    id: 5,
+    name: "Kamal Perera",
+    image: guide5,
+    language: "English, German, Sinhala",
+    price: 9000,
+    rating: 4.9,
+    reviews: 156,
+    experience: "Since 2012",
+    location: "Colombo, Kandy, Galle, Jaffna",
+    about: "Multi-lingual guide with expertise in full island tours and bird watching.",
+    specialty: "Bird Watching & Full Island Tours",
+  },
+  {
+    id: 6,
+    name: "Roshan Weerasinghe",
+    image: guide6,
+    language: "English, Russian, Sinhala",
+    price: 7200,
+    rating: 4.6,
+    reviews: 72,
+    experience: "Since 2018",
+    location: "Negombo, Chilaw, Puttalam",
+    about: "Specializes in lagoon tours, fishing villages, and off-the-beaten-path experiences.",
+    specialty: "Lagoon & Village Tours",
+  },
+  {
+    id: 7,
+    name: "Dilani Rathnayake",
+    image: guide7,
+    language: "English, Japanese, Sinhala",
+    price: 8200,
+    rating: 5.0,
+    reviews: 203,
+    experience: "Since 2013",
+    location: "Kandy, Nuwara Eliya, Badulla",
+    about: "One of the few female tour guides in Sri Lanka, specializing in tea trails and botanical gardens.",
+    specialty: "Tea Trails & Botanical Gardens",
+  },
+  {
+    id: 8,
+    name: "Nuwan Jayawardena",
+    image: guide8,
+    language: "English, Hindi, Sinhala, Tamil",
+    price: 9500,
+    rating: 4.9,
+    reviews: 167,
+    experience: "Since 2010",
+    location: "Yala, Udawalawe, Wilpattu, Minneriya",
+    about: "Wildlife specialist with over 500 safaris conducted, expert in animal behavior and photography.",
+    specialty: "Wildlife Safaris & Photography",
   },
 ];
 

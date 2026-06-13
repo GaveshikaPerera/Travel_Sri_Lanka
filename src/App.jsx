@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import TourGuidesPage from "./pages/TourGuidesPage";
+import GuidesPage from "./pages/GuidesPage";
 import GuideProfilePage from "./pages/GuideProfilePage";
 import GuideMessagePage from "./pages/GuideMessagePage";
 
@@ -9,7 +9,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={<TourGuidesPage />}
+        element={<GuidesPage />}
       />
 
       <Route
