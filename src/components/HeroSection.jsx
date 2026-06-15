@@ -53,11 +53,11 @@ const HeroSection = () => {
         {/* Search Box */}
         <div className="absolute -bottom-12 left-1/2 -translate-x-1/2 w-full max-w-[1100px] px-5 z-20">
           <div className="bg-[#455766]/80 backdrop-blur-xl rounded-[28px] border border-white/10 shadow-2xl h-[100px] flex items-center px-8">
-            {/* Location */}
+           
             <div className="flex items-center gap-3 flex-1">
               <FaMapMarkerAlt className="text-[#00C896] text-3xl" />
               <div className="w-full">
-                <label className="text-[20px] text-gray-300">Where to?</label>
+                <label className="text-[185x] text-gray-300">Where to?</label>
                 <select
                   value={location}
                   onChange={(e) => setLocation(e.target.value)}
@@ -80,11 +80,11 @@ const HeroSection = () => {
 
             <div className="w-px h-12 bg-white/20 mx-4"></div>
 
-            {/* Language */}
+            
             <div className="flex items-center gap-3 flex-1">
               <FaLanguage className="text-[#00C896] text-4xl" />
               <div className="w-full">
-                <label className="text-xs text-gray-300">Language</label>
+                <label className="text-[15px] text-gray-300">Language</label>
                 <select
                   value={language}
                   onChange={(e) => setLanguage(e.target.value)}
@@ -109,7 +109,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-3 flex-1">
               <FaStar className="text-[#00C896] text-2xl" />
               <div className="w-full">
-                <label className="text-xs text-gray-300">Rating</label>
+                <label className="text=[15px] text-gray-300">Rating</label>
                 <select
                   value={rating}
                   onChange={(e) => setRating(e.target.value)}
@@ -130,7 +130,7 @@ const HeroSection = () => {
             <div className="flex items-center gap-3 flex-1">
               <FaMoneyBillWave className="text-[#00C896] text-2xl" />
               <div className="w-full">
-                <label className="text-xs text-gray-300">Price Range (per day)</label>
+                <label className="text=[15px] text-gray-300">Price Range (per day)</label>
                 <select
                   value={priceRange}
                   onChange={(e) => setPriceRange(e.target.value)}

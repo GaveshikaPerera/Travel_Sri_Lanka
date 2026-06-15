@@ -15,7 +15,7 @@ const GuideCard = ({ guide }) => {
           </h3>
           <div className="flex justify-between mt-2">
             <p className="text-[#D9D9D9] text-[13px]">
-              {guide.language.split(",")[0]}
+              {guide.language}
             </p>
             <p className="text-[#00C896] text-[13px] font-bold">
               Rs. {guide.price}

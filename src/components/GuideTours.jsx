@@ -17,7 +17,7 @@ export default function GuideTours() {
             className="bg-[#223344] rounded-xl overflow-hidden"
           >
             <img
-              src="https://images.unsplash.com/photo-1589394815804-964ed0be2eb5"
+              src="sigiriya.image"
               alt=""
               className="h-36 w-full object-cover"
             />

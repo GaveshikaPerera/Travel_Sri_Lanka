@@ -5,7 +5,11 @@ import GuideProfile from "../components/GuideProfile";
 import Reviews from "../components/Reviews";
 import TripRequestForm from "../components/TripRequestForm";
 
-import guides from "../data/guides";
+import guides from "../data/guides.js";
+
+import sigiriya from "../assets/sigiriya.jpg";
+import yala from "../assets/yala.jpg";
+import ella from "../assets/ella.jpg";
 
 export default function GuideProfilePage() {
   const { id } = useParams();
@@ -22,13 +26,29 @@ export default function GuideProfilePage() {
     );
   }
 
+  const tours = [
+    {
+      name: "Sigiriya Heritage Tour",
+      image: sigiriya,
+      price: 7500,
+    },
+    {
+      name: "Yala Safari Adventure",
+      image: yala,
+      price: 8500,
+    },
+    {
+      name: "Ella Scenic Journey",
+      image: ella,
+      price: 7000,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-[#11212D]">
-
       <Navbar />
 
       <div className="px-8 py-8">
-
         <div className="grid grid-cols-12 gap-6">
 
           {/* LEFT */}
@@ -47,25 +67,25 @@ export default function GuideProfilePage() {
 
               <div className="grid grid-cols-3 gap-4">
 
-                {[1, 2, 3].map((tour) => (
+                {tours.map((tour, index) => (
                   <div
-                    key={tour}
-                    className="bg-[#1A2B38] rounded-xl overflow-hidden"
+                    key={index}
+                    className="bg-[#1A2B38] rounded-xl overflow-hidden hover:scale-105 duration-300"
                   >
                     <img
-                      src={guide.image}
-                      alt=""
+                      src={tour.image}
+                      alt={tour.name}
                       className="h-40 w-full object-cover"
                     />
 
                     <div className="p-3">
 
-                      <h3 className="text-sm">
-                        Cultural Heritage Tour
+                      <h3 className="text-sm font-semibold">
+                        {tour.name}
                       </h3>
 
-                      <p className="text-[#00C896] mt-2">
-                        Rs. {guide.price}
+                      <p className="text-[#00C896] mt-2 font-bold">
+                        Rs. {tour.price}
                       </p>
 
                     </div>
@@ -86,9 +106,7 @@ export default function GuideProfilePage() {
           </div>
 
         </div>
-
       </div>
-
     </div>
   );
 }
