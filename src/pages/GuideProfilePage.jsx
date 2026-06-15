@@ -25,7 +25,7 @@ export default function GuideProfilePage() {
   return (
     <div className="min-h-screen bg-[#11212D]">
 
-      <Navbar />
+      
 
       <div className="px-8 py-8">
 

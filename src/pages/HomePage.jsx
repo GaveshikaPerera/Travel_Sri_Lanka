@@ -22,14 +22,14 @@ export default function HomePage() {
                     <Route path="/tours" element={<ToursPage />} />
                     
                     
-                    <Route path="/guidespage" element={<GuidesPage />} />
+                    <Route path="/guides" element={<GuidesPage />} />
 
                     <Route path="/contact-us" element={<h1>Contact Us Page</h1>} />
                     
                     <Route path="/about-us" element={<h1>About Us Page</h1>} />
                     
-                    <Route path="/guide/:id" element={<GuideProfilePage />} />
-                    <Route path="/guide/:id/message" element={<GuideMessagePage />} />
+                    <Route path="/guides/:id" element={<GuideProfilePage />} />
+                    <Route path="/guides/:id/message" element={<GuideMessagePage />} />
 
                     <Route path="/*" element={<h1>404 Not Found</h1>} />
                 </Routes>

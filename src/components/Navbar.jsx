@@ -55,8 +55,19 @@ import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const location = useLocation();
-  
+
   const isActive = (path) => {
+    if (path === "/") {
+      return location.pathname === "/";
+    }
+
+    if (path === "/guides") {
+      return (
+        location.pathname === "/guides" ||
+        location.pathname.startsWith("/guides/")
+      );
+    }
+
     return location.pathname === path;
   };
 
@@ -76,64 +87,64 @@ const Navbar = () => {
 
         {/* MENU ITEMS */}
         <div className="flex items-center gap-10 text-white text-[15px]">
-          <Link 
-            to="/" 
+          <Link
+            to="/"
             className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive('/') ? 'text-[#00C896] underline' : ''
+              isActive("/") ? "text-[#00C896] underline" : ""
             }`}
           >
             Home
           </Link>
 
-          <Link 
-            to="/hotels" 
+          <Link
+            to="/hotels"
             className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive('/hotels') ? 'text-[#00C896] underline' : ''
+              isActive("/hotels") ? "text-[#00C896] underline" : ""
             }`}
           >
             Hotels
           </Link>
 
-          <Link 
-            to="/transport" 
+          <Link
+            to="/transport"
             className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive('/transport') ? 'text-[#00C896] underline' : ''
+              isActive("/transport") ? "text-[#00C896] underline" : ""
             }`}
           >
             Transport
           </Link>
 
-          <Link 
-            to="/tours" 
+          <Link
+            to="/tours"
             className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive('/tours') ? 'text-[#00C896] underline' : ''
+              isActive("/tours") ? "text-[#00C896] underline" : ""
             }`}
           >
             Tours
           </Link>
 
           <Link
-            to="/guidespage"
+            to="/guides"
             className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive('/guidespage') ? 'text-[#00C896] underline' : ''
+              isActive("/guides") ? "text-[#00C896] underline" : ""
             }`}
           >
             Guides
           </Link>
 
-          <Link 
-            to="/about-us" 
+          <Link
+            to="/about-us"
             className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive('/about-us') ? 'text-[#00C896] underline' : ''
+              isActive("/about-us") ? "text-[#00C896] underline" : ""
             }`}
           >
             About us
           </Link>
 
-          <Link 
-            to="/contact-us" 
+          <Link
+            to="/contact-us"
             className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive('/contact-us') ? 'text-[#00C896] underline' : ''
+              isActive("/contact-us") ? "text-[#00C896] underline" : ""
             }`}
           >
             Contact us
@@ -141,69 +152,81 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile Bottom Navigation Bar */}
+      {/* Mobile Bottom Navigation */}
       <div className="fixed bottom-0 left-0 w-full h-[70px] bg-[#2B3A47] shadow-2xl flex lg:hidden justify-evenly items-center z-50">
-        <Link 
-          to="/" 
-          className={`flex flex-col justify-center items-center text-xl transition-colors duration-300 ${
-            isActive('/') ? 'text-[#00C896]' : 'text-white hover:text-[#00C896]'
+        <Link
+          to="/"
+          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
+            isActive("/") ? "text-[#00C896]" : "text-white hover:text-[#00C896]"
           }`}
         >
-          <span className="text-xs">Home</span>
+          <span>Home</span>
         </Link>
 
-        <Link 
-          to="/hotels" 
-          className={`flex flex-col justify-center items-center text-xl transition-colors duration-300 ${
-            isActive('/hotels') ? 'text-[#00C896]' : 'text-white hover:text-[#00C896]'
+        <Link
+          to="/hotels"
+          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
+            isActive("/hotels")
+              ? "text-[#00C896]"
+              : "text-white hover:text-[#00C896]"
           }`}
         >
-          <span className="text-xs">Hotels</span>
+          <span>Hotels</span>
         </Link>
 
-        <Link 
-          to="/transport" 
-          className={`flex flex-col justify-center items-center text-xl transition-colors duration-300 ${
-            isActive('/transport') ? 'text-[#00C896]' : 'text-white hover:text-[#00C896]'
+        <Link
+          to="/transport"
+          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
+            isActive("/transport")
+              ? "text-[#00C896]"
+              : "text-white hover:text-[#00C896]"
           }`}
         >
-          <span className="text-xs">Transport</span>
+          <span>Transport</span>
         </Link>
 
-        <Link 
-          to="/tours" 
-          className={`flex flex-col justify-center items-center text-xl transition-colors duration-300 ${
-            isActive('/tours') ? 'text-[#00C896]' : 'text-white hover:text-[#00C896]'
+        <Link
+          to="/tours"
+          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
+            isActive("/tours")
+              ? "text-[#00C896]"
+              : "text-white hover:text-[#00C896]"
           }`}
         >
-          <span className="text-xs">Tours</span>
+          <span>Tours</span>
         </Link>
 
-        <Link 
-          to="/guidespage" 
-          className={`flex flex-col justify-center items-center text-xl transition-colors duration-300 ${
-            isActive('/guidespage') ? 'text-[#00C896]' : 'text-white hover:text-[#00C896]'
+        <Link
+          to="/guides"
+          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
+            isActive("/guides")
+              ? "text-[#00C896]"
+              : "text-white hover:text-[#00C896]"
           }`}
         >
-          <span className="text-xs">Guides</span>
+          <span>Guides</span>
         </Link>
 
-        <Link 
-          to="/about-us" 
-          className={`flex flex-col justify-center items-center text-xl transition-colors duration-300 ${
-            isActive('/about-us') ? 'text-[#00C896]' : 'text-white hover:text-[#00C896]'
+        <Link
+          to="/about-us"
+          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
+            isActive("/about-us")
+              ? "text-[#00C896]"
+              : "text-white hover:text-[#00C896]"
           }`}
         >
-          <span className="text-xs">About</span>
+          <span>About</span>
         </Link>
 
-        <Link 
-          to="/contact-us" 
-          className={`flex flex-col justify-center items-center text-xl transition-colors duration-300 ${
-            isActive('/contact-us') ? 'text-[#00C896]' : 'text-white hover:text-[#00C896]'
+        <Link
+          to="/contact-us"
+          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
+            isActive("/contact-us")
+              ? "text-[#00C896]"
+              : "text-white hover:text-[#00C896]"
           }`}
         >
-          <span className="text-xs">Contact</span>
+          <span>Contact</span>
         </Link>
       </div>
     </>
