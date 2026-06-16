@@ -1,28 +1,30 @@
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
 
-import GuidesPage from "./pages/GuidesPage";
-import GuideProfilePage from "./pages/GuideProfilePage";
-import GuideMessagePage from "./pages/GuideMessagePage";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import AdminPage from "./pages/AdminPage";
+
+import { Toaster } from "react-hot-toast";
+
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
   return (
-    <Routes>
-      <Route
-        path="/"
-        element={<GuidesPage />}
-      />
+    <div className="w-full h-screen">
+      <Toaster position="top-right" />
 
-      <Route
-        path="/guide/:id"
-        element={<GuideProfilePage />}
-      />
+      {/* Automatically scroll to top whenever the route changes */}
+      <ScrollToTop />
 
-      <Route
-        path="/guide/:id/message"
-        element={<GuideMessagePage />}
-      />
+      <Routes>
+        <Route path="/*" element={<HomePage />} />
 
-    </Routes>
+        <Route path="/signin" element={<LoginPage />} />
+
+        <Route path="/admin/*" element={<AdminPage />} />
+      </Routes>
+    </div>
   );
 }
 

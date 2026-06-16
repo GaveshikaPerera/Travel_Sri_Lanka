@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import guide_bg from "../assets/guide_bg.jpg";
 import {
   FaMapMarkerAlt,
@@ -8,21 +8,40 @@ import {
   FaSearch,
 } from "react-icons/fa";
 
-const HeroSection = () => {
+const GuidesHeroSection = ({ onFilterChange }) => {
   const [location, setLocation] = useState("");
   const [language, setLanguage] = useState("");
   const [rating, setRating] = useState("");
   const [priceRange, setPriceRange] = useState("");
 
+  // Notify parent component when filters change
+  useEffect(() => {
+    if (onFilterChange) {
+      onFilterChange({
+        location,
+        language,
+        rating,
+        priceRange,
+      });
+    }
+  }, [location, language, rating, priceRange]);
+
   const handleSearch = () => {
-    console.log({
+    // The filters are already applied via useEffect
+    // You can add additional search logic here if needed
+    console.log("Searching with filters:", {
       location,
       language,
       rating,
       priceRange,
     });
-    // Later send to backend
-    // navigate(`/guides?location=${location}&language=${language}&rating=${rating}&price=${priceRange}`)
+  };
+
+  const handleClearFilters = () => {
+    setLocation("");
+    setLanguage("");
+    setRating("");
+    setPriceRange("");
   };
 
   return (
@@ -63,17 +82,17 @@ const HeroSection = () => {
                   onChange={(e) => setLocation(e.target.value)}
                   className="w-full bg-transparent text-white outline-none mt-1"
                 >
-                  <option className="text-black" value="">Select</option>
-                  <option className="text-black">Colombo</option>
-                  <option className="text-black">Matara</option>
-                  <option className="text-black">Kandy</option>
-                  <option className="text-black">Galle</option>
-                  <option className="text-black">Ella</option>
-                  <option className="text-black">Sigiriya</option>
-                  <option className="text-black">Nuwara Eliya</option>
-                  <option className="text-black">Anuradhapura</option>
-                  <option className="text-black">Polonnaruwa</option>
-                  <option className="text-black">Jaffna</option>
+                  <option className="text-black" value="">All Locations</option>
+                  <option className="text-black" value="Colombo">Colombo</option>
+                  <option className="text-black" value="Matara">Matara</option>
+                  <option className="text-black" value="Kandy">Kandy</option>
+                  <option className="text-black" value="Galle">Galle</option>
+                  <option className="text-black" value="Ella">Ella</option>
+                  <option className="text-black" value="Sigiriya">Sigiriya</option>
+                  <option className="text-black" value="Nuwara Eliya">Nuwara Eliya</option>
+                  <option className="text-black" value="Anuradhapura">Anuradhapura</option>
+                  <option className="text-black" value="Polonnaruwa">Polonnaruwa</option>
+                  <option className="text-black" value="Jaffna">Jaffna</option>
                 </select>
               </div>
             </div>
@@ -90,15 +109,15 @@ const HeroSection = () => {
                   onChange={(e) => setLanguage(e.target.value)}
                   className="w-full bg-transparent text-white outline-none mt-1"
                 >
-                  <option className="text-black" value="">Select</option>
-                  <option className="text-black">English</option>
-                  <option className="text-black">Sinhala</option>
-                  <option className="text-black">Tamil</option>
-                  <option className="text-black">French</option>
-                  <option className="text-black">German</option>
-                  <option className="text-black">Japanese</option>
-                  <option className="text-black">Russian</option>
-                  <option className="text-black">Hindi</option>
+                  <option className="text-black" value="">All Languages</option>
+                  <option className="text-black" value="English">English</option>
+                  <option className="text-black" value="Sinhala">Sinhala</option>
+                  <option className="text-black" value="Tamil">Tamil</option>
+                  <option className="text-black" value="French">French</option>
+                  <option className="text-black" value="German">German</option>
+                  <option className="text-black" value="Japanese">Japanese</option>
+                  <option className="text-black" value="Russian">Russian</option>
+                  <option className="text-black" value="Hindi">Hindi</option>
                 </select>
               </div>
             </div>
@@ -115,7 +134,7 @@ const HeroSection = () => {
                   onChange={(e) => setRating(e.target.value)}
                   className="w-full bg-transparent text-white outline-none mt-1"
                 >
-                  <option className="text-black" value="">Select</option>
+                  <option className="text-black" value="">Any Rating</option>
                   <option className="text-black" value="5">⭐⭐⭐⭐⭐ (5.0)</option>
                   <option className="text-black" value="4">⭐⭐⭐⭐+ (4.0+)</option>
                   <option className="text-black" value="3">⭐⭐⭐+ (3.0+)</option>
@@ -141,12 +160,12 @@ const HeroSection = () => {
                   <option className="text-black" value="5000-7500">Rs. 5,000 - 7,500</option>
                   <option className="text-black" value="7500-10000">Rs. 7,500 - 10,000</option>
                   <option className="text-black" value="10000-15000">Rs. 10,000 - 15,000</option>
-                  <option className="text-black" value="15000+">Rs. 15,000+</option>
+                  <option className="text-black" value="15000">Rs. 15,000+</option>
                 </select>
               </div>
             </div>
 
-            {/* Search */}
+            {/* Search Button */}
             <button
               onClick={handleSearch}
               className="ml-6 bg-[#00C896] hover:bg-[#00b383] duration-300 text-white px-8 py-4 rounded-full flex items-center gap-2 font-semibold"
@@ -161,4 +180,4 @@ const HeroSection = () => {
   );
 };
 
-export default HeroSection;
+export default GuidesHeroSection;
