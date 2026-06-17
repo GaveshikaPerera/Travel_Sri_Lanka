@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
-import GuideProfile from "../components/GuideProfile";
+import GuideProfile from "../components/Guides/GuideProfile";
 import guides from "../data/guides";
 import { useState } from "react";
 

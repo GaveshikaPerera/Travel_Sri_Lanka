@@ -4,6 +4,7 @@ import "./App.css";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
+import GuideDashboardPage from "./pages/GuideDashboardPage";
 
 import { Toaster } from "react-hot-toast";
 
@@ -23,6 +24,8 @@ function App() {
         <Route path="/signin" element={<LoginPage />} />
 
         <Route path="/admin/*" element={<AdminPage />} />
+
+        <Route path="/guide-dashboard" element={<GuideDashboardPage />} />
       </Routes>
     </div>
   );

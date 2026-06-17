@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 
 import Navbar from "../components/Navbar";
-import GuideProfile from "../components/GuideProfile";
-import Reviews from "../components/Reviews";
-import TripRequestForm from "../components/TripRequestForm";
+import GuideProfile from "../components/Guides/GuideProfile.jsx";
+import Reviews from "../components/Guides/Reviews.jsx";
+import TripRequestForm from "../components/Guides/TripRequestForm.jsx";
 
 import guides from "../data/guides.js";
 

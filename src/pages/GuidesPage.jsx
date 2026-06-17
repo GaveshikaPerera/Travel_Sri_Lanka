@@ -1,6 +1,6 @@
 import { useState } from "react";
-import GuidesHeroSection from "../components/GuidesHeroSection";
-import GuideCard from "../components/GuideCard";
+import GuidesHeroSection from "../components/Guides/GuidesHeroSection";
+import GuideCard from "../components/Guides/GuideCard";
 import Footer from "../components/Footer";
 import guides from "../data/guides";
 
