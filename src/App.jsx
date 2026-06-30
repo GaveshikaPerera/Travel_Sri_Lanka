@@ -5,6 +5,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import AboutUsPage from "./pages/AboutUsPage";
+import ContactUsPage from "./pages/ContactUsPage";
 import GuideDashboardPage from "./pages/GuideDashboardPage";
 
 import { Toaster } from "react-hot-toast";
@@ -27,6 +28,8 @@ function App() {
         <Route path="/admin/*" element={<AdminPage />} />
 
          <Route path="/about-us" element={<AboutUsPage />} />
+
+         <Route path="/contact-us" element={<ContactUsPage />} />
 
         <Route path="/guide-dashboard" element={<GuideDashboardPage />} />
       </Routes>
