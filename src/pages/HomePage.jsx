@@ -3,9 +3,9 @@ import Navbar from "../components/Navbar";
 import HotelsPage from "./HotelsPage";
 import TransportPage from "./TransportPage";
 import ToursPage from "./ToursPage";
-import GuidesPage from "./GuidesPage";
-import GuideProfilePage from "./GuideProfilePage";
-import GuideMessagePage from "./GuideMessagePage";
+import GuidesPage from "./Guides/GuidesPage";
+import GuideProfilePage from "./Guides/GuideProfilePage";
+import GuideMessagePage from "./Guides/GuideMessagePage";
 
 export default function HomePage() {
 	return (
