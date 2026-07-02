@@ -1,90 +1,188 @@
-import { Link } from "react-router-dom";
+import {
+  FaFacebook,
+  FaInstagram,
+  FaWhatsapp,
+  FaTiktok,
+  FaYoutube,
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
+  FaChevronRight,
+} from "react-icons/fa";
 
-function Footer() {
+import logo from "../assets/logo.png";
+import tripadvisor from "../assets/tripadvisor.jpg";
+import badge1 from "../assets/badge1.png";
+import badge2 from "../assets/badge2.png";
+import badge3 from "../assets/badge3.png";
+
+export default function Footer() {
   return (
-    <footer className="border-t border-[#386C93] mt-36">
+    <footer className="bg-[#253745] text-white">
+      <div className="max-w-7xl mx-auto px-8 py-4">
 
-      <div className="max-w-[1280px] mx-auto grid grid-cols-3 px-10 py-10">
+        <div className="grid grid-cols-1 lg:grid-cols-3">
 
-        {/* Left */}
-        <div>
+          {/* LEFT SECTION */}
+          <div className="grid md:grid-cols-2 gap-10">
 
-          <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4">
-            Explore
-          </h2>
+            {/* Explore */}
+            <div>
+              <h3 className="text-2xl font-medium mb-3">
+                Explore
+              </h3>
 
-          <div className="space-y-2 text-[#D9D9D9] text-sm">
-            <Link to="/" className="block hover:text-[#00C896] transition-colors duration-300">
-              Home
-            </Link>
-            <Link to="/hotels" className="block hover:text-[#00C896] transition-colors duration-300">
-              Hotels
-            </Link>
-            <Link to="/transport" className="block hover:text-[#00C896] transition-colors duration-300">
-              Transport
-            </Link>
-            <Link to="/tours" className="block hover:text-[#00C896] transition-colors duration-300">
-              Tours
-            </Link>
-            <Link to="/guidespage" className="block hover:text-[#00C896] transition-colors duration-300">
-              Guides
-            </Link>
-            <Link to="/about-us" className="block hover:text-[#00C896] transition-colors duration-300">
-              About us
-            </Link>
-            <Link to="/contact-us" className="block hover:text-[#00C896] transition-colors duration-300">
-              Contact us
-            </Link>
+              <ul className="space-y-1 text-s text-gray-300">
+                {[
+                  "Home",
+                  "Hotels",
+                  "Transport",
+                  "Tours",
+                  "Guides",
+                  "About us",
+                  "Contact us",
+                ].map((item) => (
+                  <li
+                    key={item}
+                    className="flex items-center gap-2 hover:text-[#00C896] cursor-pointer transition"
+                  >
+                    <FaChevronRight className="text-[8px]" />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-2xl font-medium mb-3">
+                Contact Us
+              </h3>
+
+              <div className="space-y-2 text-s text-gray-300">
+
+                <div className="flex gap-2">
+                  <FaEnvelope className="text-[#00C896] mt-1" />
+                  <div>
+                    <p>info@toursforsrilanka.com</p>
+                    <p>toursforsrilanka@gmail.com</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <FaPhoneAlt className="text-[#00C896] mt-1" />
+                  <div>
+                    <p>+94 70 387 12 10</p>
+                    <p>+94 71 93 75 121</p>
+                  </div>
+                </div>
+
+                <div className="flex gap-2">
+                  <FaWhatsapp className="text-[#00C896] mt-1" />
+                  <p>+94 77 847 7903</p>
+                </div>
+
+                <div className="flex gap-2">
+                  <FaMapMarkerAlt className="text-[#00C896] mt-1" />
+
+                  <div className="leading-5">
+                    Tours for Sri Lanka Travel Agency,
+                    <br />
+                    No 608/1, Nabata Aluthgama,Dambulla Road,
+                    <br />
+                    Melsiripura, Sri Lanka.
+                    <br />
+                    Postal Code : 60540
+                    <br />
+                    SLTDA Reg No :
+                    SLTDA/SQA/TA/2011
+                    <br />
+                    Civil Aviation License Number :
+                    A1478
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
 
-        </div>
+          {/* CENTER SECTION */}
+          <div className="flex flex-col items-center justify-center  border-r border-gray-500 px-15  ">
 
-        {/* Middle */}
-        <div>
+            <img
+              src={tripadvisor}
+              alt="Tripadvisor"
+              className="w-60 object-contain mb-3"
+            />
 
-          <h2 className="text-[#D9D9D9] text-xl font-semibold mb-4">
-            Contact Us
-          </h2>
+            <div className="flex items-center gap-3">
 
-          <div className="space-y-2 text-[#D9D9D9] text-sm">
-            <p>travelsrilanka@gmail.com</p>
-            <p>tourhelp@gmail.com</p>
-            <p>+94 77 123 4567</p>
-            <p>+94 71 987 6543</p>
+              <img
+                src={badge1}
+                alt=""
+                className="h-20 object-contain"
+              />
+
+              <img
+                src={badge2}
+                alt=""
+                className="h-20 object-contain"
+              />
+
+              <img
+                src={badge3}
+                alt=""
+                className="h-20 object-contain"
+              />
+
+            </div>
+
           </div>
 
-        </div>
+          {/* RIGHT SECTION */}
+          <div className="flex flex-col items-center justify-center">
 
-        {/* Right */}
-        <div className="flex flex-col items-center justify-center">
+            <img
+              src={logo}
+              alt="Tours For Sri Lanka"
+              className="h-20 object-contain mb-3"
+            />
 
-          <Link to="/" className="text-center">
-            <h1 className="text-[#D9D9D9] text-6xl font-black">
-              SRI
-            </h1>
-            <p className="text-[#D9D9D9] text-4xl font-black">
-              LANKA
+            <div className="flex gap-3">
+
+              <a href="#">
+                <FaFacebook className="text-[30px] text-[#1877F2] hover:scale-110 duration-300" />
+              </a>
+
+              <a href="#">
+                <FaInstagram className="text-[30px] text-pink-500 hover:scale-110 duration-300" />
+              </a>
+
+              <a href="#">
+                <FaWhatsapp className="text-[30px] text-green-500 hover:scale-110 duration-300" />
+              </a>
+
+              <a href="#">
+                <FaTiktok className="text-[28px] text-white hover:scale-110 duration-300" />
+              </a>
+
+              <a href="#">
+                <FaYoutube className="text-[30px] text-red-600 hover:scale-110 duration-300" />
+              </a>
+
+            </div>
+
+            <p className="text-s text-gray-300 mt-10 text-center">
+              © Copyright 2026 Tours For Sri Lanka |
+              Designed by University of Ruhuna
             </p>
-          </Link>
 
-          <div className="flex gap-4 mt-5">
-            {/* Social media icons - you can wrap these in links too */}
-            <div className="w-9 h-9 rounded-full bg-[#00C896] hover:bg-[#00a87a] transition-colors duration-300 cursor-pointer"></div>
-            <div className="w-9 h-9 rounded-full bg-[#00C896] hover:bg-[#00a87a] transition-colors duration-300 cursor-pointer"></div>
-            <div className="w-9 h-9 rounded-full bg-[#00C896] hover:bg-[#00a87a] transition-colors duration-300 cursor-pointer"></div>
-            <div className="w-9 h-9 rounded-full bg-[#00C896] hover:bg-[#00a87a] transition-colors duration-300 cursor-pointer"></div>
           </div>
 
         </div>
 
       </div>
-
-      <div className="border-t border-[#386C93] py-4 text-center text-[#D9D9D9] text-sm">
-        © Copyright 2026 Travel Sri Lanka
-      </div>
-
     </footer>
   );
 }
-
-export default Footer;

@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 
-import Navbar from "../components/Navbar";
-import GuideProfile from "../components/Guides/GuideProfile.jsx";
-import Reviews from "../components/Guides/Reviews.jsx";
-import TripRequestForm from "../components/Guides/TripRequestForm.jsx";
+import Navbar from "../../components/Navbar.jsx";
+import GuideProfile from "../../components/Guides/GuideProfile.jsx";
+import Reviews from "../../components/Guides/Reviews.jsx";
+import TripRequestForm from "../../components/Guides/TripRequestForm.jsx";
 
-import guides from "../data/guides.js";
+import guides from "../../data/guides.js";
 
 import sigiriya from "../assets/sigiriya.jpg";
 import yala from "../assets/yala.jpg";

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import guides from "../data/guides";
+import guides from "../../data/guides";
 
 export default function GuideDetailsPage() {
   const { id } = useParams();
