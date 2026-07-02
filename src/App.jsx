@@ -6,7 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactUsPage from "./pages/ContactUsPage";
-import GuideDashboardPage from "./pages/GuideDashboardPage";
+import GuideDashboardPage from "./pages/Guides/GuideDashboardPage";
 
 import { Toaster } from "react-hot-toast";
 

@@ -1,15 +1,15 @@
 import { useParams } from "react-router-dom";
 
-import Navbar from "../../components/Navbar.jsx";
+import Navbar from "../../components/Navbar";
 import GuideProfile from "../../components/Guides/GuideProfile.jsx";
 import Reviews from "../../components/Guides/Reviews.jsx";
 import TripRequestForm from "../../components/Guides/TripRequestForm.jsx";
 
 import guides from "../../data/guides.js";
 
-import sigiriya from "../assets/sigiriya.jpg";
-import yala from "../assets/yala.jpg";
-import ella from "../assets/ella.jpg";
+import sigiriya from "../../assets/sigiriya.jpg";
+import yala from "../../assets/yala.jpg";
+import ella from "../../assets/ella.jpg";
 
 export default function GuideProfilePage() {
   const { id } = useParams();
@@ -46,7 +46,7 @@ export default function GuideProfilePage() {
 
   return (
     <div className="min-h-screen bg-[#11212D]">
-
+      <Navbar />
       
 
       <div className="px-8 py-8">
