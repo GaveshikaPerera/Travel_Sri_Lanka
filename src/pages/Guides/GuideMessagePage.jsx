@@ -1,6 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
-import GuideProfile from "../components/Guides/GuideProfile";
-import guides from "../data/guides";
+import Navbar from "../../components/Navbar";
+import GuideProfile from "../../components/Guides/GuideProfile";
+import guides from "../../data/guides.js";
 import { useState } from "react";
 
 export default function GuideMessagePage() {
@@ -37,7 +38,7 @@ export default function GuideMessagePage() {
 
   return (
     <div className="min-h-screen bg-[#11212D]">
-      
+   
 
       <div className="grid grid-cols-12 gap-6 p-8">
 

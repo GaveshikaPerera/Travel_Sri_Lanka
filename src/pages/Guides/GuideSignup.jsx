@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Stepper from "../components/signup/Stepper";
-import AccountStep from "../components/signup/AccountStep";
-import PersonalInfoStep from "../components/signup/PersonalInfoStep";
-import ProfessionalInfoStep from "../components/signup/ProfessionalInfoStep";
-import PricingStep from "../components/signup/PricingStep";
+import Stepper from "../../components/signup/Stepper";
+import AccountStep from "../../components/signup/AccountStep";
+import PersonalInfoStep from "../../components/signup/PersonalInfoStep";
+import ProfessionalInfoStep from "../../components/signup/ProfessionalInfoStep";
+import PricingStep from "../../components/signup/PricingStep";
 import "../styles/guideSignup.css";
 
 export default function GuideSignup() {

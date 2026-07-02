@@ -1,8 +1,8 @@
 import { useState } from "react";
-import GuidesHeroSection from "../components/Guides/GuidesHeroSection";
-import GuideCard from "../components/Guides/GuideCard";
-import Footer from "../components/Footer";
-import guides from "../data/guides";
+import GuidesHeroSection from "../../components/Guides/GuidesHeroSection";
+import GuideCard from "../../components/Guides/GuideCard";
+import Footer from "../../components/Footer";
+import guides from "../../data/guides";
 
 const GuidesPage = () => {
   const [filters, setFilters] = useState({
