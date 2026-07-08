@@ -52,6 +52,7 @@
 // export default Navbar;
 
 import { Link, useLocation } from "react-router-dom";
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
@@ -76,14 +77,11 @@ const Navbar = () => {
       {/* Desktop Navbar */}
       <nav className="w-full h-[80px] bg-[#2B3A47] hidden lg:flex items-center justify-between px-10 m-0">
         {/* LOGO */}
-        <Link to="/" className="text-white no-underline">
-          <h1 className="text-[28px] font-bold leading-none">
-            SRI
-          </h1>
-          <p className="text-[11px] tracking-[2px] text-[#D9D9D9]">
-            TOURS FOR LANKA
-          </p>
-        </Link>
+         <img
+            src={logo}
+            alt="Tours For Sri Lanka"
+            className="h-20 object-contain mb-3"
+        />
 
         {/* MENU ITEMS */}
         <div className="flex items-center gap-10 text-white text-[15px]">
