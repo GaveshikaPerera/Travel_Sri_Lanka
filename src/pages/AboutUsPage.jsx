@@ -1,5 +1,3 @@
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
 import aboutBg from "../assets/about_bg.jpg";
 
 import {

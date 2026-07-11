@@ -7,9 +7,9 @@ import TripRequestForm from "../../components/Guides/TripRequestForm.jsx";
 
 import guides from "../../data/guides.js";
 
-import sigiriya from "../../assets/guides/sigiriya.jpg";
-import yala from "../../assets/guides/yala.jpg";
-import ella from "../../assets/guides/ella.jpg";
+import sigiriya from "../../assets/places/sigiriya.jpg";
+import yala from "../../assets/places/yala.jpg";
+import ella from "../../assets/places/ella.jpg";
 
 export default function GuideProfilePage() {
   const { id } = useParams();
