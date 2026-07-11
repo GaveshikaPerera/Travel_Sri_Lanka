@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import guide_bg from "../../assets/guide_bg.jpg";
+import guide_bg from "../../assets/guides/guide_bg.jpg";
 
 import {
   FaMapMarkerAlt,

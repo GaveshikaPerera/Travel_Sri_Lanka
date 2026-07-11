@@ -93,7 +93,7 @@ const GuidesPage = () => {
           </div>
         </section>
 
-        <Footer />
+       
       </div>
     </div>
   );
