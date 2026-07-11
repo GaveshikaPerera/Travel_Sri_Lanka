@@ -1,180 +1,194 @@
+// const Navbar = () => {
+//   return (
+//     <nav className="w-full h-[80px] bg-[#2B3A47] flex items-center justify-between px-10 m-0"> {/* Added m-0 */}
+//       {/* LOGO */}
+//       <div className="text-white">
+//         <h1 className="text-[28px] font-bold leading-none">
+//           SRI
+//         </h1>
+
+//         <p className="text-[11px] tracking-[2px] text-[#D9D9D9]">
+//           TOURS FOR LANKA
+//         </p>
+//       </div>
+
+//       {/* MENU ITEMS */}
+//       <div className="flex items-center gap-10 text-white text-[15px]">
+//         <a href="#" className="hover:text-[#00C896]">
+//           Home
+//         </a>
+
+//         <a href="#" className="hover:text-[#00C896]">
+//           Hotels
+//         </a>
+
+//         <a href="#" className="hover:text-[#00C896]">
+//           Transport
+//         </a>
+
+//         <a href="#" className="hover:text-[#00C896]">
+//           Tours
+//         </a>
+
+//         <a
+//           href="#"
+//           className="text-[#00C896] border-b-2 border-[#00C896] pb-1"
+//         >
+//           Guides
+//         </a>
+
+//         <a href="#" className="hover:text-[#00C896]">
+//           About us
+//         </a>
+
+//         <a href="#" className="hover:text-[#00C896]">
+//           Contact us
+//         </a>
+//       </div>
+//     </nav>
+//   );
+// };
+
+// export default Navbar;
+
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { HiMenu, HiX } from "react-icons/hi";
 import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const menuItems = [
+    { name: "Home", path: "/" },
+    { name: "Hotels", path: "/hotels" },
+    { name: "Transport", path: "/transport" },
+    { name: "Tours", path: "/tours" },
+    { name: "Guides", path: "/guides" },
+    { name: "About", path: "/about-us" },
+    { name: "Contact", path: "/contact-us" },
+  ];
 
   const isActive = (path) => {
     if (path === "/") {
       return location.pathname === "/";
     }
 
-    if (path === "/guides") {
-      return (
-        location.pathname === "/guides" ||
-        location.pathname.startsWith("/guides/")
-      );
-    }
-
-    return location.pathname === path;
+    return location.pathname.startsWith(path);
   };
 
   return (
-    <>
-      {/* Desktop Navbar */}
-      <nav className="w-full h-[80px] bg-[#2B3A47] hidden lg:flex items-center justify-between px-10 m-0">
-        {/* LOGO */}
-         <img
-            src={logo}
-            alt="Tours For Sri Lanka"
-            className="h-20 object-contain mb-3"
-        />
+    <nav className="sticky top-0 z-50 bg-[#253745]/95 backdrop-blur-md border-b border-white/10 shadow-md">
+      <div className="max-w-7xl mx-auto px-10 lg:px-10">
+        <div className="flex items-center justify-between h-20">
 
-        {/* MENU ITEMS */}
-        <div className="flex items-center gap-10 text-white text-[15px]">
-          <Link
-            to="/"
-            className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive("/") ? "text-[#00C896] underline" : ""
-            }`}
-          >
-            Home
+          {/* Logo */}
+          <Link to="/">
+            <img
+              src={logo}
+              alt="Tours For Sri Lanka"
+              className="h-16 object-contain"
+            />
           </Link>
 
-          <Link
-            to="/hotels"
-            className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive("/hotels") ? "text-[#00C896] underline" : ""
-            }`}
-          >
-            Hotels
-          </Link>
+          {/* Desktop Menu */}
+          <div className="hidden lg:flex items-center gap-8">
 
-          <Link
-            to="/transport"
-            className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive("/transport") ? "text-[#00C896] underline" : ""
-            }`}
-          >
-            Transport
-          </Link>
+            {menuItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                className={`text-[15px] transition-all duration-300 pb-1
+                ${
+                  isActive(item.path)
+                    ? "text-[#00C896] border-b-2 border-[#00C896] font-semibold"
+                    : "text-white hover:text-[#00C896]"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
 
-          <Link
-            to="/tours"
-            className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive("/tours") ? "text-[#00C896] underline" : ""
-            }`}
-          >
-            Tours
-          </Link>
+          </div>
 
-          <Link
-            to="/guides"
-            className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive("/guides") ? "text-[#00C896] underline" : ""
-            }`}
-          >
-            Guides
-          </Link>
+          {/* Desktop Buttons */}
+          <div className="hidden lg:flex items-center gap-3">
 
-          <Link
-            to="/about-us"
-            className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive("/about-us") ? "text-[#00C896] underline" : ""
-            }`}
-          >
-            About us
-          </Link>
+            <Link
+              to="/signin"
+              className="px-5 py-2 rounded-full border border-[#00C896] text-white font-medium hover:bg-[#00C896] transition duration-300"
+            >
+              Sign In
+            </Link>
 
-          <Link
-            to="/contact-us"
-            className={`hover:text-[#00C896] transition-colors duration-300 hover:underline underline-offset-4 ${
-              isActive("/contact-us") ? "text-[#00C896] underline" : ""
-            }`}
+            <Link
+              to="/signup"
+              className="px-5 py-2 rounded-full bg-[#00C896] text-white font-medium hover:bg-[#00b884] transition duration-300"
+            >
+              Sign Up
+            </Link>
+
+          </div>
+
+          {/* Mobile Button */}
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="lg:hidden text-white text-3xl"
           >
-            Contact us
-          </Link>
+            {isOpen ? <HiX /> : <HiMenu />}
+          </button>
+
         </div>
-      </nav>
-
-      {/* Mobile Bottom Navigation */}
-      <div className="fixed bottom-0 left-0 w-full h-[70px] bg-[#2B3A47] shadow-2xl flex lg:hidden justify-evenly items-center z-50">
-        <Link
-          to="/"
-          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
-            isActive("/") ? "text-[#00C896]" : "text-white hover:text-[#00C896]"
-          }`}
-        >
-          <span>Home</span>
-        </Link>
-
-        <Link
-          to="/hotels"
-          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
-            isActive("/hotels")
-              ? "text-[#00C896]"
-              : "text-white hover:text-[#00C896]"
-          }`}
-        >
-          <span>Hotels</span>
-        </Link>
-
-        <Link
-          to="/transport"
-          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
-            isActive("/transport")
-              ? "text-[#00C896]"
-              : "text-white hover:text-[#00C896]"
-          }`}
-        >
-          <span>Transport</span>
-        </Link>
-
-        <Link
-          to="/tours"
-          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
-            isActive("/tours")
-              ? "text-[#00C896]"
-              : "text-white hover:text-[#00C896]"
-          }`}
-        >
-          <span>Tours</span>
-        </Link>
-
-        <Link
-          to="/guides"
-          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
-            isActive("/guides")
-              ? "text-[#00C896]"
-              : "text-white hover:text-[#00C896]"
-          }`}
-        >
-          <span>Guides</span>
-        </Link>
-
-        <Link
-          to="/about-us"
-          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
-            isActive("/about-us")
-              ? "text-[#00C896]"
-              : "text-white hover:text-[#00C896]"
-          }`}
-        >
-          <span>About</span>
-        </Link>
-
-        <Link
-          to="/contact-us"
-          className={`flex flex-col justify-center items-center text-xs transition-colors duration-300 ${
-            isActive("/contact-us")
-              ? "text-[#00C896]"
-              : "text-white hover:text-[#00C896]"
-          }`}
-        >
-          <span>Contact</span>
-        </Link>
       </div>
-    </>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="lg:hidden bg-[#253745] border-t border-white/10">
+
+          <div className="flex flex-col px-6 py-4">
+
+            {menuItems.map((item) => (
+              <Link
+                key={item.path}
+                to={item.path}
+                onClick={() => setIsOpen(false)}
+                className={`py-3 transition
+                ${
+                  isActive(item.path)
+                    ? "text-[#00C896] font-semibold"
+                    : "text-white hover:text-[#00C896]"
+                }`}
+              >
+                {item.name}
+              </Link>
+            ))}
+
+            <div className="flex flex-col gap-3 mt-5">
+
+              <Link
+                to="/signin"
+                onClick={() => setIsOpen(false)}
+                className="text-center py-2 border border-[#00C896] rounded-full text-white hover:bg-[#00C896] transition"
+              >
+                Sign In
+              </Link>
+
+              <Link
+                to="/signup"
+                onClick={() => setIsOpen(false)}
+                className="text-center py-2 rounded-full bg-[#00C896] text-white hover:bg-[#00b884] transition"
+              >
+                Sign Up
+              </Link>
+
+            </div>
+
+          </div>
+
+        </div>
+      )}
+    </nav>
   );
 };
 
