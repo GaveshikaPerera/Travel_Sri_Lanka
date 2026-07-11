@@ -1,4 +1,4 @@
-import guide1 from "../../assets/guide1.jpg";
+import guide1 from "../../assets/guides/guide1.jpg";
 
 export default function Reviews() {
   const reviews = [

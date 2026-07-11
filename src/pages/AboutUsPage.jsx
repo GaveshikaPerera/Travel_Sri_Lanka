@@ -65,7 +65,7 @@ export default function AboutUsPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-r from-[#02131E] via-[#0D2434] to-[#213847]">
-      <Navbar />
+      
 
       {/* Hero */}
       <section className="px-5 md:px-10 pt-6">
@@ -174,7 +174,7 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      <Footer />
+      
     </div>
   );
 }

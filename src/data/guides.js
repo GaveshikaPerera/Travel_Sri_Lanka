@@ -1,11 +1,11 @@
-import guide1 from "../assets/guide1.jpg";
-import guide2 from "../assets/guide2.jpg";
-import guide3 from "../assets/guide3.jpg";
-import guide4 from "../assets/guide4.jpg";
-import guide5 from "../assets/guide5.jpg";
-import guide6 from "../assets/guide6.jpg";
-import guide7 from "../assets/guide7.jpg";
-import guide8 from "../assets/guide8.jpg";
+import guide1 from "../assets/guides/guide1.jpg";
+import guide2 from "../assets/guides/guide2.jpg";
+import guide3 from "../assets/guides/guide3.jpg";
+import guide4 from "../assets/guides/guide4.jpg";
+import guide5 from "../assets/guides/guide5.jpg";
+import guide6 from "../assets/guides/guide6.jpg";
+import guide7 from "../assets/guides/guide7.jpg";
+import guide8 from "../assets/guides/guide8.jpg";
 
 const guides = [
   {
