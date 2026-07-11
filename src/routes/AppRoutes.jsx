@@ -14,6 +14,8 @@ import GuideMessagePage from "../pages/Guides/GuideMessagePage";
 import ToursPage from "../pages/Tours/ToursPage";
 import TourDetailsPage from "../pages/Tours/TourDetailsPage";
 import TransportPage from "../pages/Transport/TransportPage";
+import DestinationCategoryPage from "../pages/Destinations/DestinationCategoryPage";
+import DestinationDetailsPage from "../pages/Destinations/DestinationDetailsPage";  
 
 import AboutUsPage from "../pages/AboutUsPage";
 import ContactUsPage from "../pages/ContactUsPage";
@@ -37,6 +39,8 @@ const AppRoutes = () => {
         <Route path="/tours" element={<ToursPage />} />
         <Route path="/tours/:id" element={<TourDetailsPage />} />
         <Route path="/transport" element={<TransportPage />} />
+        <Route path="/destinations/:category" element={<DestinationCategoryPage />} />
+        <Route path="/destinations/:category/:id" element={<DestinationDetailsPage />} />
 
         <Route path="/about-us" element={<AboutUsPage />} />
         <Route path="/contact-us" element={<ContactUsPage />} />
