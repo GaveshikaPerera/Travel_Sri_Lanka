@@ -10,7 +10,7 @@ const ToursPage = () => {
 
       <TourHeroSection />
 
-      <TourSearch />
+      
 
       <TourGrid />
 

@@ -12,6 +12,7 @@ import GuideProfilePage from "../pages/Guides/GuideProfilePage";
 import GuideMessagePage from "../pages/Guides/GuideMessagePage";
 
 import ToursPage from "../pages/Tours/ToursPage";
+import TourDetailsPage from "../pages/Tours/TourDetailsPage";
 import TransportPage from "../pages/Transport/TransportPage";
 
 import AboutUsPage from "../pages/AboutUsPage";
@@ -34,6 +35,7 @@ const AppRoutes = () => {
         <Route path="/guides/:id/message" element={<GuideMessagePage />} />
 
         <Route path="/tours" element={<ToursPage />} />
+        <Route path="/tours/:id" element={<TourDetailsPage />} />
         <Route path="/transport" element={<TransportPage />} />
 
         <Route path="/about-us" element={<AboutUsPage />} />
