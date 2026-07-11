@@ -19,8 +19,13 @@ import DestinationDetailsPage from "../pages/Destinations/DestinationDetailsPage
 
 import AboutUsPage from "../pages/AboutUsPage";
 import ContactUsPage from "../pages/ContactUsPage";
-import LoginPage from "../pages/LoginPage";
+
 import AdminPage from "../pages/AdminPage";
+
+import LoginPage from "../pages/auth/LoginPage";
+import TravellerSignupStep1 from "../pages/auth/TravellerSignUpStep1";
+
+
 
 const AppRoutes = () => {
   return (
@@ -47,7 +52,10 @@ const AppRoutes = () => {
       </Route>
 
       <Route path="/signin" element={<LoginPage />} />
+      <Route path="/signup/traveller" element={<TravellerSignupStep1 />} />
+      
       <Route path="/admin/*" element={<AdminPage />} />
+      
     </Routes>
   );
 };
