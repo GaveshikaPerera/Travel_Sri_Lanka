@@ -101,7 +101,7 @@ export default function HotelSignupStep3() {
               </Link>
 
               <Link
-                to="/signup/hotel/facilities"
+                to="/signup/hotel/verification"
                 className="px-8 py-3 rounded-full bg-[#00C896] text-white font-semibold hover:bg-[#00b383] transition"
               >
                 Next

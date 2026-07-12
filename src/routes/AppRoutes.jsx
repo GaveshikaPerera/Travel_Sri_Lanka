@@ -34,6 +34,9 @@ import HotelSignupStep2 from "../pages/auth/hotel/HotelSignupStep2";
 import HotelSignupStep3 from "../pages/auth/hotel/HotelSignupStep3";
 import HotelSignupStep4 from "../pages/auth/hotel/HotelSignupStep4";
 
+import HotelDashboard from "../pages/Hotels/dashboard/HotelDashboard";
+
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -75,6 +78,8 @@ const AppRoutes = () => {
 
       <Route path="/admin/*" element={<AdminPage />} />
       
+      <Route path="/hotel/dashboard" element={<HotelDashboard />} />
+     
     </Routes>
   );
 };
