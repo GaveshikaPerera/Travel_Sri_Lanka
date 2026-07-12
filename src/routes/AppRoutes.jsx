@@ -29,7 +29,7 @@ import TravellerSignupStep1 from "../pages/auth/TravellerSignupStep1";
 import TravellerSignupStep2 from "../pages/auth/TravellerSignupStep2";
 import TravellerSignupStep3 from "../pages/auth/TravellerSignupStep3";
 
-import HotelOwnerSignupStep1 from "../pages/auth/HotelOwnerSignupStep1";
+import HotelSignupStep1 from "../pages/auth/hotel/HotelSignupStep1";
 
 const AppRoutes = () => {
   return (
@@ -63,7 +63,7 @@ const AppRoutes = () => {
       <Route path="/signup/traveller/personal" element={<TravellerSignupStep2 />} />
       <Route path="/signup/traveller/photo" element={<TravellerSignupStep3 />} />
       
-      <Route path="/signup/hotel" element={<HotelOwnerSignupStep1 />} />
+      <Route path="/signup/hotel" element={<HotelSignupStep1 />} />
       <Route path="/admin/*" element={<AdminPage />} />
       
     </Routes>
