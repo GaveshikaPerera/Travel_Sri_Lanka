@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 
-import Navbar from "../../components/Navbar";
+
 import GuideProfile from "../../components/Guides/GuideProfile.jsx";
 import Reviews from "../../components/Guides/Reviews.jsx";
 import TripRequestForm from "../../components/Guides/TripRequestForm.jsx";
@@ -46,10 +46,8 @@ export default function GuideProfilePage() {
 
   return (
     <div className="min-h-screen bg-[#11212D]">
-      <Navbar />
-      
-
-      <div className="px-8 py-8">
+     
+       <div className="px-8 py-8">
         <div className="grid grid-cols-12 gap-6">
 
           {/* LEFT */}
