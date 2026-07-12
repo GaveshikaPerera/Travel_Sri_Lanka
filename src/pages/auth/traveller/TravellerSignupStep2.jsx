@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import AuthLeftPanel from "../../components/auth/AuthLeftPanel";
-import AuthCard from "../../components/auth/AuthCard";
-import StepIndicator from "../../components/auth/StepIndicator";
+import AuthLeftPanel from "../../../components/auth/AuthLeftPanel";
+import AuthCard from "../../../components/auth/AuthCard";
+import StepIndicator from "../../../components/auth/StepIndicator";
 
 export default function TravellerSignupStep2() {
   return (

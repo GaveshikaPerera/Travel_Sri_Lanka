@@ -25,11 +25,17 @@ import AdminPage from "../pages/AdminPage";
 import LoginPage from "../pages/auth/LoginPage";
 import SignupTypePage from "../pages/auth/SignupTypePage";
 
-import TravellerSignupStep1 from "../pages/auth/TravellerSignupStep1";
-import TravellerSignupStep2 from "../pages/auth/TravellerSignupStep2";
-import TravellerSignupStep3 from "../pages/auth/TravellerSignupStep3";
+import TravellerSignupStep1 from "../pages/auth/traveller/TravellerSignupStep1";
+import TravellerSignupStep2 from "../pages/auth/traveller/TravellerSignupStep2";
+import TravellerSignupStep3 from "../pages/auth/traveller/TravellerSignupStep3";
 
 import HotelSignupStep1 from "../pages/auth/hotel/HotelSignupStep1";
+import HotelSignupStep2 from "../pages/auth/hotel/HotelSignupStep2";
+import HotelSignupStep3 from "../pages/auth/hotel/HotelSignupStep3";
+import HotelSignupStep4 from "../pages/auth/hotel/HotelSignupStep4";
+
+import HotelDashboard from "../pages/Hotels/dashboard/HotelDashboard";
+
 
 const AppRoutes = () => {
   return (
@@ -64,8 +70,16 @@ const AppRoutes = () => {
       <Route path="/signup/traveller/photo" element={<TravellerSignupStep3 />} />
       
       <Route path="/signup/hotel" element={<HotelSignupStep1 />} />
+      <Route path="/signup/hotel/details" element={<HotelSignupStep2 />} /> 
+      <Route path="/signup/hotel/facilities" element={<HotelSignupStep3 />} />
+      <Route path="/signup/hotel/verification" element={<HotelSignupStep4 />} />
+
+    
+
       <Route path="/admin/*" element={<AdminPage />} />
       
+      <Route path="/hotel/dashboard" element={<HotelDashboard />} />
+     
     </Routes>
   );
 };

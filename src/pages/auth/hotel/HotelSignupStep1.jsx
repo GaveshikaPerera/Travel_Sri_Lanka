@@ -91,7 +91,7 @@ export default function HotelSignupStep1() {
 
             {/* Next Button */}
 
-            <Link to="/signup/hotel/information">
+            <Link to="/signup/hotel/details">
 
               <button className="w-full h-14 rounded-full bg-[#00C896] hover:bg-[#00b383] text-white font-semibold text-lg mt-8 transition">
                 Next
