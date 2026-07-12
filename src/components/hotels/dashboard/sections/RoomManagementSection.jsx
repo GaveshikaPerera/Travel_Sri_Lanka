@@ -1,44 +1,62 @@
-import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 import { useState } from "react";
+import { FaPlus, FaEdit, FaTrash } from "react-icons/fa";
 import AddRoomModal from "../rooms/AddRoomModal";
 import EditRoomModal from "../rooms/EditRoomModal";
+import DeleteRoomModal from "../rooms/DeleteRoomModal"; 
 
 export default function RoomManagementSection() {
-  // Room state
   const [rooms, setRooms] = useState([
     {
       id: 1,
-      roomNo: "101",
-      type: "Deluxe",
-      price: "LKR 12,000",
+      roomNumber: "101",
+      roomType: "Deluxe",
+      price: 12000,
+      capacity: 2,
+      bedType: "Queen",
       status: "Available",
+      description: "Luxury room with balcony",
+      images: [],
     },
     {
       id: 2,
-      roomNo: "102",
-      type: "Standard",
-      price: "LKR 9,500",
+      roomNumber: "102",
+      roomType: "Standard",
+      price: 9500,
+      capacity: 2,
+      bedType: "Double",
       status: "Occupied",
+      description: "Comfortable standard room",
+      images: [],
     },
     {
       id: 3,
-      roomNo: "201",
-      type: "Family",
-      price: "LKR 18,000",
+      roomNumber: "201",
+      roomType: "Family",
+      price: 18000,
+      capacity: 4,
+      bedType: "King",
       status: "Maintenance",
+      description: "Family room",
+      images: [],
     },
     {
       id: 4,
-      roomNo: "301",
-      type: "Suite",
-      price: "LKR 25,000",
+      roomNumber: "301",
+      roomType: "Suite",
+      price: 25000,
+      capacity: 4,
+      bedType: "King",
       status: "Available",
+      description: "Luxury suite",
+      images: [],
     },
   ]);
 
   const [showAddModal, setShowAddModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
   const [selectedRoom, setSelectedRoom] = useState(null);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [roomToDelete, setRoomToDelete] = useState(null);
 
   const getStatusColor = (status) => {
     switch (status) {
@@ -52,6 +70,39 @@ export default function RoomManagementSection() {
         return "bg-gray-500/20 text-gray-300";
     }
   };
+
+  const handleAddRoom = (newRoom) => {
+    setRooms((prev) => [
+      ...prev,
+      {
+        ...newRoom,
+        id: Date.now(),
+        price: Number(newRoom.price),
+        capacity: Number(newRoom.capacity),
+      },
+    ]);
+  };
+
+  const handleUpdateRoom = (updatedRoom) => {
+    setRooms((prev) =>
+      prev.map((room) =>
+        room.id === updatedRoom.id
+          ? {
+              ...updatedRoom,
+              price: Number(updatedRoom.price),
+              capacity: Number(updatedRoom.capacity),
+            }
+          : room
+      )
+    );
+  };
+
+  const handleDeleteRoom = (id) => {
+  setRooms((prev) => prev.filter((room) => room.id !== id));
+
+  setShowDeleteModal(false);
+  setRoomToDelete(null);
+};
 
   return (
     <section
@@ -79,13 +130,13 @@ export default function RoomManagementSection() {
         </button>
       </div>
 
-      {/* Table */}
+      {/* Room Table */}
       <div className="overflow-x-auto">
         <table className="w-full">
           <thead>
             <tr className="border-b border-[#4A5C6A]">
               <th className="text-left py-4 text-gray-300">Room No</th>
-              <th className="text-left py-4 text-gray-300">Type</th>
+              <th className="text-left py-4 text-gray-300">Room Type</th>
               <th className="text-left py-4 text-gray-300">Price</th>
               <th className="text-left py-4 text-gray-300">Status</th>
               <th className="text-center py-4 text-gray-300">Actions</th>
@@ -98,11 +149,17 @@ export default function RoomManagementSection() {
                 key={room.id}
                 className="border-b border-[#2F4156] hover:bg-[#2F4156]"
               >
-                <td className="py-5 text-white">{room.roomNo}</td>
+                <td className="py-5 text-white">
+                  {room.roomNumber}
+                </td>
 
-                <td className="text-gray-300">{room.type}</td>
+                <td className="text-gray-300">
+                  {room.roomType}
+                </td>
 
-                <td className="text-gray-300">{room.price}</td>
+                <td className="text-gray-300">
+                  LKR {room.price.toLocaleString()}
+                </td>
 
                 <td>
                   <span
@@ -126,7 +183,13 @@ export default function RoomManagementSection() {
                       <FaEdit />
                     </button>
 
-                    <button className="text-red-400 hover:scale-110 transition">
+                    <button
+                        className="text-red-400 hover:scale-110 transition"
+                        onClick={() => {
+                            setRoomToDelete(room);
+                            setShowDeleteModal(true);
+                        }}
+                        >
                       <FaTrash />
                     </button>
                   </div>
@@ -141,17 +204,7 @@ export default function RoomManagementSection() {
       <AddRoomModal
         isOpen={showAddModal}
         onClose={() => setShowAddModal(false)}
-        onSave={(newRoom) => {
-          const room = {
-            id: Date.now(),
-            roomNo: newRoom.roomNumber,
-            type: newRoom.roomType,
-            price: `LKR ${newRoom.price}`,
-            status: newRoom.status,
-          };
-
-          setRooms((prev) => [...prev, room]);
-        }}
+        onSave={handleAddRoom}
       />
 
       {/* Edit Room Modal */}
@@ -159,22 +212,20 @@ export default function RoomManagementSection() {
         isOpen={showEditModal}
         onClose={() => setShowEditModal(false)}
         selectedRoom={selectedRoom}
-        onUpdate={(updatedRoom) => {
-          setRooms((prev) =>
-            prev.map((room) =>
-              room.id === updatedRoom.id
-                ? {
-                    ...room,
-                    roomNo: updatedRoom.roomNumber,
-                    type: updatedRoom.roomType,
-                    price: `LKR ${updatedRoom.price}`,
-                    status: updatedRoom.status,
-                  }
-                : room
-            )
-          );
-        }}
+        onUpdate={handleUpdateRoom}
       />
+
+        {/* Delete Room Modal */}
+        <DeleteRoomModal
+            isOpen={showDeleteModal}
+            onClose={() => {
+                setShowDeleteModal(false);
+                setRoomToDelete(null);
+            }}
+            room={roomToDelete}
+            onDelete={handleDeleteRoom}
+            />
+
     </section>
   );
 }

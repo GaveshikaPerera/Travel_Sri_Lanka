@@ -10,42 +10,46 @@ export default function RoomForm({
     <form onSubmit={handleSubmit} className="space-y-5">
       {/* Room Number */}
       <div>
-        <label className="block text-gray-300 mb-2">Room Number</label>
+        <label className="block text-gray-300 mb-2">
+          Room Number
+        </label>
 
         <input
           type="text"
           name="roomNumber"
           value={room.roomNumber}
           onChange={handleChange}
-          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white focus:outline-none focus:border-[#00C896]"
-          placeholder="101"
+          placeholder="e.g. 101"
+          required
+          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#00C896]"
         />
       </div>
 
       {/* Room Type */}
-
       <div>
-        <label className="block text-gray-300 mb-2">Room Type</label>
+        <label className="block text-gray-300 mb-2">
+          Room Type
+        </label>
 
         <select
           name="roomType"
           value={room.roomType}
           onChange={handleChange}
+          required
           className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white focus:outline-none focus:border-[#00C896]"
         >
-          <option value="">Select Type</option>
-          <option>Standard</option>
-          <option>Deluxe</option>
-          <option>Family</option>
-          <option>Suite</option>
+          <option value="">Select Room Type</option>
+          <option value="Standard">Standard</option>
+          <option value="Deluxe">Deluxe</option>
+          <option value="Family">Family</option>
+          <option value="Suite">Suite</option>
         </select>
       </div>
 
       {/* Price */}
-
       <div>
         <label className="block text-gray-300 mb-2">
-          Price Per Night
+          Price Per Night (LKR)
         </label>
 
         <input
@@ -53,47 +57,57 @@ export default function RoomForm({
           name="price"
           value={room.price}
           onChange={handleChange}
-          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white focus:outline-none focus:border-[#00C896]"
+          placeholder="12000"
+          min="0"
+          required
+          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#00C896]"
         />
       </div>
 
       {/* Capacity */}
-
       <div>
-        <label className="block text-gray-300 mb-2">Capacity</label>
+        <label className="block text-gray-300 mb-2">
+          Capacity
+        </label>
 
         <input
           type="number"
           name="capacity"
           value={room.capacity}
           onChange={handleChange}
-          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white focus:outline-none focus:border-[#00C896]"
+          placeholder="2"
+          min="1"
+          required
+          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#00C896]"
         />
       </div>
 
-      {/* Bed */}
-
+      {/* Bed Type */}
       <div>
-        <label className="block text-gray-300 mb-2">Bed Type</label>
+        <label className="block text-gray-300 mb-2">
+          Bed Type
+        </label>
 
         <select
           name="bedType"
           value={room.bedType}
           onChange={handleChange}
+          required
           className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white focus:outline-none focus:border-[#00C896]"
         >
-          <option value="">Select Bed</option>
-          <option>Single</option>
-          <option>Double</option>
-          <option>Queen</option>
-          <option>King</option>
+          <option value="">Select Bed Type</option>
+          <option value="Single">Single</option>
+          <option value="Double">Double</option>
+          <option value="Queen">Queen</option>
+          <option value="King">King</option>
         </select>
       </div>
 
       {/* Status */}
-
       <div>
-        <label className="block text-gray-300 mb-2">Status</label>
+        <label className="block text-gray-300 mb-2">
+          Status
+        </label>
 
         <select
           name="status"
@@ -101,30 +115,29 @@ export default function RoomForm({
           onChange={handleChange}
           className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white focus:outline-none focus:border-[#00C896]"
         >
-          <option>Available</option>
-          <option>Occupied</option>
-          <option>Maintenance</option>
+          <option value="Available">Available</option>
+          <option value="Occupied">Occupied</option>
+          <option value="Maintenance">Maintenance</option>
         </select>
       </div>
 
       {/* Description */}
-
       <div>
         <label className="block text-gray-300 mb-2">
           Description
         </label>
 
         <textarea
-          rows="4"
+          rows={4}
           name="description"
           value={room.description}
           onChange={handleChange}
-          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white focus:outline-none focus:border-[#00C896]"
+          placeholder="Write a short description about the room..."
+          className="w-full bg-[#2F4156] border border-[#4A5C6A] rounded-lg p-3 text-white placeholder-gray-400 focus:outline-none focus:border-[#00C896]"
         />
       </div>
 
-      {/* Images */}
-
+      {/* Room Images */}
       <div>
         <label className="block text-gray-300 mb-2">
           Room Images
@@ -132,8 +145,11 @@ export default function RoomForm({
 
         <input
           type="file"
+          name="images"
           multiple
-          className="w-full text-gray-300"
+          accept="image/*"
+          onChange={handleChange}
+          className="w-full text-gray-300 file:bg-[#00C896] file:text-white file:border-0 file:px-4 file:py-2 file:rounded-lg file:cursor-pointer"
         />
       </div>
 
