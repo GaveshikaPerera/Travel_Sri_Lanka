@@ -167,7 +167,7 @@ const Navbar = () => {
             <div className="flex flex-col gap-3 mt-5">
 
               <Link
-                to="/signin"
+                to="/login"
                 onClick={() => setIsOpen(false)}
                 className="text-center py-2 border border-[#00C896] rounded-full text-white hover:bg-[#00C896] transition"
               >
