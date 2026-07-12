@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { FaCamera, FaTrash } from "react-icons/fa";
 
-import AuthLeftPanel from "../../components/auth/AuthLeftPanel";
-import AuthCard from "../../components/auth/AuthCard";
-import StepIndicator from "../../components/auth/StepIndicator";
+import AuthLeftPanel from "../../../components/auth/AuthLeftPanel";
+import AuthCard from "../../../components/auth/AuthCard";
+import StepIndicator from "../../../components/auth/StepIndicator";
 
 export default function TravellerSignupStep3() {
   const [image, setImage] = useState(null);
@@ -26,7 +26,15 @@ export default function TravellerSignupStep3() {
 
         <div className="w-[520px]">
 
-          <StepIndicator currentStep={3} />
+          <StepIndicator
+            currentStep={3}
+            steps={[
+              "Account",
+              "Personal Info",
+              "Profile",
+              "Finish"
+            ]}
+          />
 
           <AuthCard>
 
