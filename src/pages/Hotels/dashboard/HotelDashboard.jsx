@@ -10,6 +10,9 @@ import {
 import DashboardCard from "../../../components/hotels/dashboard/DashboardCard";
 import RoomTable from "../../../components/hotels/dashboard/RoomTable";
 import RoomStatus from "../../../components/hotels/dashboard/RoomStatus";
+import ProfileSection from "../../../components/hotels/dashboard/sections/ProfileSection"; 
+import HotelDetailsSection from "../../../components/hotels/dashboard/sections/HotelDetailsSection";  
+import RoomManagementSection from "../../../components/hotels/dashboard/sections/RoomManagementSection";
 
 export default function HotelDashboard() {
   return (
@@ -66,6 +69,12 @@ export default function HotelDashboard() {
         <RoomStatus />
 
         </div>
+        <ProfileSection />
+
+        <HotelDetailsSection />
+
+        <RoomManagementSection />
+
       </main>
 
     </div>
