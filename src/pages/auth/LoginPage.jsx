@@ -1,120 +1,118 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaEye, FaGoogle, FaFacebookF } from "react-icons/fa";
-//import AuthLayout from "../../components/auth/AuthLayout";
+import {
+  FaEnvelope,
+  FaLock,
+  FaEye,
+  FaEyeSlash,
+} from "react-icons/fa";
 
-function LoginPage() {
+import AuthLeftPanel from "../../components/auth/AuthLeftPanel";
+import AuthCard from "../../components/auth/AuthCard";
+import AuthInput from "../../components/auth/AuthInput";
+
+export default function LoginPage() {
+  const [showPassword, setShowPassword] = useState(false);
+
   return (
-    // <AuthLayout title="Welcome Back">
-      <form className="space-y-5">
+    <div className="min-h-screen bg-[#11212D] flex">
 
-        {/* Email */}
-        <div>
-          <label className="block text-[#11212D] font-medium mb-2">
-            Email Address
-          </label>
+      {/* Left Side */}
+      <AuthLeftPanel />
 
-          <input
-            type="email"
-            placeholder="Enter your email"
-            className="w-full border border-gray-300 rounded-xl px-4 py-3 focus:outline-none focus:border-[#00C896]"
-          />
-        </div>
+      {/* Right Side */}
+      <div className="w-full lg:w-1/2 flex items-center justify-center px-8">
 
-        {/* Password */}
-        <div>
-          <label className="block text-[#11212D] font-medium mb-2">
-            Password
-          </label>
+        <AuthCard>
 
-          <div className="relative">
-            <input
-              type="password"
-              placeholder="Enter your password"
-              className="w-full border border-gray-300 rounded-xl px-4 py-3 pr-12 focus:outline-none focus:border-[#00C896]"
+          <h1 className="text-white text-4xl font-bold text-center">
+            Sign in
+          </h1>
+
+          <p className="text-gray-300 text-center mt-3 leading-7">
+            Welcome back!
+            <br />
+            Please sign in to continue your journey.
+          </p>
+
+          <div className="mt-8 space-y-5">
+
+            <AuthInput
+              icon={<FaEnvelope />}
+              placeholder="E-Mail"
             />
 
-            <FaEye className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-500 cursor-pointer" />
+            <AuthInput
+              type={showPassword ? "text" : "password"}
+              icon={<FaLock />}
+              placeholder="Password"
+              rightIcon={
+                <button
+                  type="button"
+                  onClick={() =>
+                    setShowPassword(!showPassword)
+                  }
+                >
+                  {showPassword ? (
+                    <FaEyeSlash />
+                  ) : (
+                    <FaEye />
+                  )}
+                </button>
+              }
+            />
+
           </div>
-        </div>
 
-        {/* Remember Me */}
-        <div className="flex justify-between items-center text-sm">
+          {/* Remember + Forgot */}
 
-          <label className="flex items-center gap-2 text-gray-600">
-            <input type="checkbox" />
-            Remember Me
-          </label>
+          <div className="flex justify-between items-center mt-6 text-sm">
 
-          <Link
-            to="/forgot-password"
-            className="text-[#00C896] hover:underline"
-          >
-            Forgot Password?
-          </Link>
+            <label className="flex items-center gap-2 text-gray-300 cursor-pointer">
 
-        </div>
+              <input
+                type="checkbox"
+                className="accent-[#00C896]"
+              />
 
-        {/* Login Button */}
-        <button
-          type="submit"
-          className="w-full bg-[#00C896] hover:bg-[#00b383] text-white py-3 rounded-xl font-semibold transition"
-        >
-          Sign In
-        </button>
+              Remember me
 
-        {/* Divider */}
-        <div className="flex items-center">
+            </label>
 
-          <div className="flex-1 border-t border-gray-300"></div>
+            <Link
+              to="/forgot-password"
+              className="text-gray-300 hover:text-[#00C896]"
+            >
+              Forgot Password?
+            </Link>
 
-          <span className="px-3 text-gray-500 text-sm">
-            OR
-          </span>
+          </div>
 
-          <div className="flex-1 border-t border-gray-300"></div>
+          {/* Button */}
 
-        </div>
-
-        {/* Social Login */}
-
-        <div className="grid grid-cols-2 gap-4">
-
-          <button
-            type="button"
-            className="border rounded-xl py-3 flex justify-center items-center gap-2 hover:bg-gray-100 transition"
-          >
-            <FaGoogle className="text-red-500" />
-            Google
+          <button className="w-full h-14 rounded-full bg-[#00C896] hover:bg-[#00b383] duration-300 text-white text-xl font-semibold mt-8">
+            Sign in
           </button>
 
-          <button
-            type="button"
-            className="border rounded-xl py-3 flex justify-center items-center gap-2 hover:bg-gray-100 transition"
-          >
-            <FaFacebookF className="text-blue-600" />
-            Facebook
-          </button>
+          {/* Bottom */}
 
-        </div>
+          <p className="text-center text-gray-300 mt-8">
 
-        {/* Sign Up */}
+            Don't have an account?{" "}
 
-        <p className="text-center text-gray-600">
+            <Link
+              to="/signup"
+              className="text-white font-semibold hover:text-[#00C896]"
+            >
+              Sign up
+            </Link>
 
-          Don't have an account?{" "}
+          </p>
 
-          <Link
-            to="/signup"
-            className="text-[#00C896] font-semibold hover:underline"
-          >
-            Sign Up
-          </Link>
+        </AuthCard>
 
-        </p>
+      </div>
 
-      </form>
-    //</AuthLayout>
+    </div>
   );
 }
-
-export default LoginPage;

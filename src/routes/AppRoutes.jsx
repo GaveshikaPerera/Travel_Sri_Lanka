@@ -23,9 +23,13 @@ import ContactUsPage from "../pages/ContactUsPage";
 import AdminPage from "../pages/AdminPage";
 
 import LoginPage from "../pages/auth/LoginPage";
-import TravellerSignupStep1 from "../pages/auth/TravellerSignUpStep1";
+import SignupTypePage from "../pages/auth/SignupTypePage";
 
+import TravellerSignupStep1 from "../pages/auth/TravellerSignupStep1";
+import TravellerSignupStep2 from "../pages/auth/TravellerSignupStep2";
+import TravellerSignupStep3 from "../pages/auth/TravellerSignupStep3";
 
+import HotelOwnerSignupStep1 from "../pages/auth/HotelOwnerSignupStep1";
 
 const AppRoutes = () => {
   return (
@@ -52,8 +56,14 @@ const AppRoutes = () => {
       </Route>
 
       <Route path="/signin" element={<LoginPage />} />
+
+      <Route path="/signup" element={<SignupTypePage />} />
+
       <Route path="/signup/traveller" element={<TravellerSignupStep1 />} />
+      <Route path="/signup/traveller/personal" element={<TravellerSignupStep2 />} />
+      <Route path="/signup/traveller/photo" element={<TravellerSignupStep3 />} />
       
+      <Route path="/signup/hotel" element={<HotelOwnerSignupStep1 />} />
       <Route path="/admin/*" element={<AdminPage />} />
       
     </Routes>

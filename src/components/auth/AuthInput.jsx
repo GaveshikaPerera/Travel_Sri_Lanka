@@ -1,11 +1,9 @@
-import React from "react";
-
-const AuthInput = ({
+export default function AuthInput({
   type = "text",
   placeholder,
   icon,
   rightIcon,
-}) => {
+}) {
   return (
     <div className="relative">
 
@@ -18,21 +16,7 @@ const AuthInput = ({
       <input
         type={type}
         placeholder={placeholder}
-        className="
-          w-full
-          h-14
-          rounded-full
-          bg-[#3B4E5E]
-          text-white
-          placeholder:text-gray-400
-          pl-14
-          pr-14
-          outline-none
-          border-none
-          focus:ring-2
-          focus:ring-[#00C896]
-          duration-300
-        "
+        className="w-full h-14 rounded-full bg-[#3D4F5F] text-white placeholder-gray-300 pl-14 pr-14 outline-none"
       />
 
       {rightIcon && (
@@ -40,8 +24,7 @@ const AuthInput = ({
           {rightIcon}
         </div>
       )}
+
     </div>
   );
-};
-
-export default AuthInput;
+}
