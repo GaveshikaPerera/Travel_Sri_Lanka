@@ -13,6 +13,9 @@ import RoomStatus from "../../../components/hotels/dashboard/RoomStatus";
 import ProfileSection from "../../../components/hotels/dashboard/sections/ProfileSection"; 
 import HotelDetailsSection from "../../../components/hotels/dashboard/sections/HotelDetailsSection";  
 import RoomManagementSection from "../../../components/hotels/dashboard/sections/RoomManagementSection";
+import ReviewsSection from "../../../components/hotels/dashboard/sections/ReviewSection";
+import MessagesSection from "../../../components/hotels/dashboard/sections/MessagesSection";
+
 
 export default function HotelDashboard() {
   return (
@@ -49,6 +52,10 @@ export default function HotelDashboard() {
           </section>
 
         <RoomManagementSection />
+
+        <ReviewsSection />
+
+        <MessagesSection />
 
       </main>
 
