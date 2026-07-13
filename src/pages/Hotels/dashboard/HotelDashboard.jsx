@@ -13,8 +13,6 @@ import RoomStatus from "../../../components/hotels/dashboard/RoomStatus";
 import ProfileSection from "../../../components/hotels/dashboard/sections/ProfileSection"; 
 import HotelDetailsSection from "../../../components/hotels/dashboard/sections/HotelDetailsSection";  
 import RoomManagementSection from "../../../components/hotels/dashboard/sections/RoomManagementSection";
-//import HotelGallerySection from "../../../components/hotels/dashboard/sections/HotelGallerySection";
-import ReviewsSection from "../../../components/hotels/dashboard/sections/ReviewSection";
 
 export default function HotelDashboard() {
   return (
@@ -50,26 +48,9 @@ export default function HotelDashboard() {
             <HotelDetailsSection />
           </section>
 
-          {/* Room Management */}
-          <section id="rooms">
-            <RoomManagementSection />
-          </section>
+        <RoomManagementSection />
 
-          {/* Reviews */}
-          <section id="reviews">
-            <ReviewsSection />
-          </section>
-
-          {/* Messages */}
-          <section id="messages">
-            {/* MessagesSection */}
-          </section>
-
-          {/* Settings */}
-          <section id="settings">
-            {/* SettingsSection */}
-          </section>
-</main>
+      </main>
 
     </div>
   );
