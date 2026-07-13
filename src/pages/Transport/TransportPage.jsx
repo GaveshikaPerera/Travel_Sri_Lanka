@@ -1,11 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Briefcase, Bus, Calendar, Car, MapPin, Plane, Users } from "lucide-react";
-import TransportNavbar from "../components/TransportNavbar";
-import TransportFooter from "../components/TransportFooter";
-import { vehicleTypes } from "../data/vehicles";
-import heroBg from "../assets/transport-bg.jpg";
 
+import { vehicleTypes } from "../../data/vehicles";
+import heroBg from "../../assets/transport/transport-bg.jpg";
 export default function TransportPage() {
   const navigate = useNavigate();
 
@@ -35,7 +33,7 @@ export default function TransportPage() {
 
   return (
     <main className="min-h-screen bg-[#071923] text-white">
-      <TransportNavbar />
+      
 
       <section
         className="w-[calc(100%-88px)] min-h-[360px] mx-auto mt-[18px] rounded-[22px] bg-cover bg-center overflow-hidden max-lg:w-[calc(100%-28px)]"
@@ -125,7 +123,7 @@ export default function TransportPage() {
         </div>
       </section>
 
-      <TransportFooter />
+      
     </main>
   );
 }

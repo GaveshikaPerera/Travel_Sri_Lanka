@@ -1,7 +1,7 @@
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import { MapPin, Users } from "lucide-react";
-import TransportNavbar from "../components/TransportNavbar";
-import { vehicles } from "../data/vehicles";
+import Navbar from "../../components/Navbar";
+import { vehicles } from "../../data/vehicles";
 
 export default function VehicleListPage() {
   const { type } = useParams();
@@ -27,7 +27,7 @@ export default function VehicleListPage() {
 
   return (
     <main className="min-h-screen bg-[#071923] text-white">
-      <TransportNavbar />
+      <Navbar />
 
       <section className="min-h-[calc(100vh-78px)] px-14 py-6 max-lg:px-5">
         {filteredVehicles.length === 0 ? (

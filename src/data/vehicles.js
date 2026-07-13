@@ -1,9 +1,9 @@
-import carImg from "../assets/car.png";
-import vanImg from "../assets/van.png";
-import busImg from "../assets/bus.png";
-import jeepImg from "../assets/jeep.png";
-import driverImg from "../assets/driver.jpg";
-import reviewerImg from "../assets/reviewer.jpg";
+import carImg from "../assets/transport/car.png";
+import vanImg from "../assets/transport/van.png";
+import busImg from "../assets/transport/bus.png";
+import jeepImg from "../assets/transport/jeep.png";
+import driverImg from "../assets/transport/driver.jpg";
+import reviewerImg from "../assets/transport/reviewer.jpg";
 
 const owner = {
   name: "Shantha Mendis",

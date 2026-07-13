@@ -10,9 +10,9 @@ import {
   Star,
   Users,
 } from "lucide-react";
-import TransportNavbar from "../components/TransportNavbar";
-import VehicleInfoPanel from "../components/VehicleInfoPanel";
-import { review, vehicles } from "../data/vehicles";
+import Navbar from "../../components/Navbar";
+import VehicleInfoPanel from "../../components/Transport/VehicleInfoPanel";
+import { vehicles } from "../../data/vehicles";
 
 export default function VehicleDetailsPage() {
   const { id } = useParams();
@@ -41,7 +41,7 @@ export default function VehicleDetailsPage() {
 
   return (
     <main className="min-h-screen bg-[#071923] text-white">
-      <TransportNavbar />
+      <Navbar />
 
       <section className="grid grid-cols-[1.05fr_1.05fr_.92fr] gap-6 bg-gradient-to-r from-[#071923] to-[#183142] px-10 py-6 max-xl:grid-cols-1 max-lg:px-5">
         <VehicleInfoPanel
