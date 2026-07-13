@@ -10,10 +10,9 @@ import {
   Star,
   Users,
 } from "lucide-react";
-import Navbar from "../../components/Navbar";
-import VehicleInfoPanel from "../../components/Transport/VehicleInfoPanel";
-import { vehicles } from "../../data/vehicles";
 
+import VehicleInfoPanel from "../../components/Transport/VehicleInfoPanel";
+import { vehicles, review } from "../../data/vehicles";
 export default function VehicleDetailsPage() {
   const { id } = useParams();
   const [params] = useSearchParams();
@@ -41,7 +40,7 @@ export default function VehicleDetailsPage() {
 
   return (
     <main className="min-h-screen bg-[#071923] text-white">
-      <Navbar />
+     
 
       <section className="grid grid-cols-[1.05fr_1.05fr_.92fr] gap-6 bg-gradient-to-r from-[#071923] to-[#183142] px-10 py-6 max-xl:grid-cols-1 max-lg:px-5">
         <VehicleInfoPanel
