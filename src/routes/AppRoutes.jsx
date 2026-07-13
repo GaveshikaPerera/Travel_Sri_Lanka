@@ -39,6 +39,11 @@ import VehicleSignupStep2 from "../pages/auth/vehicle/VehicleSignupStep2";
 import VehicleSignupStep3 from "../pages/auth/vehicle/VehicleSignupStep3";
 import VehicleSignupStep4 from "../pages/auth/vehicle/VehicleSignupStep4";
 
+import GuideSignupStep1 from "../pages/auth/guide/GuideSignupStep1";
+import GuideSignupStep2 from "../pages/auth/guide/GuideSignupStep2";  
+import GuideSignupStep3 from "../pages/auth/guide/GuideSignupStep3";  
+import GuideSignupStep4 from "../pages/auth/guide/GuideSignupStep4";  
+
 import HotelDashboard from "../pages/Hotels/dashboard/HotelDashboard";
 
 
@@ -83,6 +88,11 @@ const AppRoutes = () => {
       <Route path="/signup/vehicle/details" element={<VehicleSignupStep2 />} />
       <Route path="/signup/vehicle/services" element={<VehicleSignupStep3 />} />  
       <Route path="/signup/vehicle/verification" element={<VehicleSignupStep4 />} />
+
+      <Route path="/signup/guide" element={<GuideSignupStep1 />} />
+      <Route path="/signup/guide/details" element={<GuideSignupStep2 />} />
+      <Route path="/signup/guide/services" element={<GuideSignupStep3 />} />
+      <Route path="/signup/guide/verification" element={<GuideSignupStep4 />} />  
 
       <Route path="/admin/*" element={<AdminPage />} />
       
