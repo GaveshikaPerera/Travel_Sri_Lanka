@@ -51,7 +51,7 @@ export default function SignupTypePage() {
 
             {/* Vehicle Owner */}
             <Link
-              to="/signup/vehicle-owner"
+              to="/signup/vehicle"
               className="bg-[#243746] rounded-[28px] h-[170px] flex flex-col justify-center items-center shadow-xl hover:scale-105 transition duration-300"
             >
               <FaCar
