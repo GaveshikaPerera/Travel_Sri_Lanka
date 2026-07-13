@@ -9,76 +9,95 @@ import {
   FaSignOutAlt,
 } from "react-icons/fa";
 
-import { Link, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import logo from "../../../assets/logo.png";
 
 export default function Sidebar() {
-  const location = useLocation();
+  const [activeSection, setActiveSection] = useState("dashboard");
 
   const menu = [
     {
       name: "Dashboard",
       icon: <FaHome />,
-      path: "/hotel/dashboard",
+      id: "dashboard",
     },
     {
       name: "Profile",
       icon: <FaUser />,
-      path: "/hotel/profile",
+      id: "profile",
     },
     {
       name: "Hotel Information",
       icon: <FaHotel />,
-      path: "/hotel/information",
+      id: "hotel-information",
     },
     {
       name: "Room Management",
       icon: <FaBed />,
-      path: "/hotel/rooms",
+      id: "rooms",
     },
     {
       name: "Reviews",
       icon: <FaStar />,
-      path: "/hotel/reviews",
+      id: "reviews",
     },
     {
       name: "Messages",
       icon: <FaEnvelope />,
-      path: "/hotel/messages",
+      id: "messages",
     },
     {
       name: "Settings",
       icon: <FaCog />,
-      path: "/hotel/settings",
+      id: "settings",
     },
   ];
 
+  useEffect(() => {
+    const sections = document.querySelectorAll("section[id]");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      {
+        threshold: 0.35,
+      }
+    );
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
+
+  const scrollToSection = (id) => {
+    document.getElementById(id)?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
+
   return (
-    <aside className="w-64 bg-[#253745] border-r border-[#4A5C6A] min-h-screen flex flex-col">
-
+    <aside className="w-64 bg-[#253745] border-r border-[#4A5C6A] min-h-screen sticky top-0 flex flex-col">
       {/* Logo */}
-
       <div className="py-8 flex justify-center">
-        <img
-          src={logo}
-          alt="logo"
-          className="w-36"
-        />
+        <img src={logo} alt="logo" className="w-36" />
       </div>
 
       {/* Menu */}
-
       <nav className="flex-1 px-5">
-
         {menu.map((item) => (
-
-          <Link
-            key={item.name}
-            to={item.path}
-            className={`flex items-center gap-4 px-4 py-3 rounded-xl mb-3 transition-all
+          <button
+            key={item.id}
+            onClick={() => scrollToSection(item.id)}
+            className={`w-full flex items-center gap-4 px-4 py-3 rounded-xl mb-3 transition-all duration-300
             ${
-              location.pathname === item.path
+              activeSection === item.id
                 ? "bg-[#00C896] text-white"
                 : "text-gray-300 hover:bg-[#2F4156]"
             }`}
@@ -86,27 +105,17 @@ export default function Sidebar() {
             {item.icon}
 
             <span>{item.name}</span>
-
-          </Link>
-
+          </button>
         ))}
-
       </nav>
 
       {/* Logout */}
-
       <div className="p-5 border-t border-[#4A5C6A]">
-
         <button className="flex items-center gap-3 text-red-400 hover:text-red-300">
-
           <FaSignOutAlt />
-
           Logout
-
         </button>
-
       </div>
-
     </aside>
   );
 }

@@ -8,13 +8,11 @@ export default function AuthLeftPanel() {
         <img
           src={logo}
           alt="logo"
-          className="w-[420px] mx-auto"
+          className="w-[520px] mx-auto"
         />
 
-        <p className="text-white text-4xl mt-8 leading-relaxed font-light">
-          Discover The Wonders
-          <br />
-          of Sri Lanka
+        <p className="text-white text-2xl mt-6 leading-relaxed font-light">
+          Discover The Wonders of Sri Lanka
         </p>
 
       </div>
