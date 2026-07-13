@@ -26,16 +26,16 @@ export default function TravellerSignupStep3() {
 
         <div className="w-[520px]">
 
-          <StepIndicator
-            currentStep={3}
-            steps={[
-              "Account",
-              "Personal Info",
-              "Profile",
-              "Finish"
-            ]}
-          />
-
+        {/* <StepIndicator
+            //currentStep={3}
+            //steps={[
+             // "Account",
+              //"Personal Info",
+             // "Profile",
+             // "Finish"
+            //]}
+         // />
+          */}
           <AuthCard>
 
             <h2 className="text-3xl font-bold text-center text-white">

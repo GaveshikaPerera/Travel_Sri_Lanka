@@ -13,26 +13,20 @@ export default function HotelSignupStep2() {
       {/* Right Panel */}
       <div className="flex-1 flex items-center justify-center px-8 py-10">
 
-        <div className="w-full max-w-3xl">
+        <div className="w-[520px]">
 
           <StepIndicator
             currentStep={2}
-            steps={[
-              "Account",
-              "Hotel",
-              "Facilities",
-              "Verification",
-            ]}
           />
 
           <AuthCard>
 
-            <h2 className="text-3xl font-bold text-center text-[#11212D] mb-8">
-              Hotel Information
-            </h2>
+             <h2 className="text-white text-3xl font-bold text-center mb-5">
+                Hotel Information
+              </h2>
 
             {/* Hotel Name */}
-
+            
             <input
               type="text"
               placeholder="Hotel Name"
@@ -119,7 +113,7 @@ export default function HotelSignupStep2() {
               </Link>
 
             </div>
-
+            
           </AuthCard>
 
         </div>
