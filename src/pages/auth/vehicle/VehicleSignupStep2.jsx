@@ -17,16 +17,16 @@ export default function VehicleSignupStep2() {
 
         <div className="flex justify-center items-center flex-1 p-8">
 
-          <AuthCard className="w-full max-w-xl">
+          <AuthCard>
 
-            <h2 className="text-3xl font-bold text-white text-center mb-8">
+            <h2 className="text-3xl font-bold text-white text-center mb-5">
               Sign up as Vehicle Owner
             </h2>
 
             {/* Vehicle Type */}
 
             <select
-              className="w-full h-14 rounded-full bg-[#2F4156] text-white px-5 mb-5 outline-none"
+              className="w-full h-14 rounded-full bg-[#2F4156] text-white px-5 mb-3 outline-none"
             >
               <option>Vehicle Type</option>
               <option>Car</option>
@@ -38,7 +38,7 @@ export default function VehicleSignupStep2() {
 
             {/* Brand & Model */}
 
-            <div className="grid grid-cols-2 gap-4 mb-5">
+            <div className="grid grid-cols-2 gap-4 mb-3">
 
               <input
                 type="text"
@@ -59,12 +59,12 @@ export default function VehicleSignupStep2() {
             <textarea
               rows={4}
               placeholder="Short Description"
-              className="w-full rounded-2xl bg-[#2F4156] p-4 text-white outline-none mb-5 resize-none"
+              className="w-full rounded-2xl bg-[#2F4156] p-4 text-white outline-none mb-3 resize-none"
             />
 
             {/* Registration */}
 
-            <div className="grid grid-cols-2 gap-4 mb-5">
+            <div className="grid grid-cols-2 gap-4 mb-3">
 
               <input
                 type="text"

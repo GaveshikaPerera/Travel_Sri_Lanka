@@ -12,11 +12,11 @@ export default function VehicleSignupStep4() {
         {title}
       </h3>
 
-      <p className="text-gray-400 text-xs mb-3">
+      <p className="text-gray-400 text-xs mb-1">
         Upload PDF / JPG / PNG
       </p>
 
-      <label className="border-2 border-dashed border-[#4A5C6A] rounded-xl h-36 flex flex-col justify-center items-center cursor-pointer hover:border-[#00C896] transition">
+      <label className="border-2 border-dashed border-[#4A5C6A] rounded-xl h-18 flex flex-col justify-center items-center cursor-pointer hover:border-[#00C896] transition">
         <span className="text-4xl text-[#00C896]">⬆</span>
 
         <span className="text-gray-300 text-sm mt-2">
@@ -45,13 +45,13 @@ export default function VehicleSignupStep4() {
 
         <div className="flex justify-center items-center flex-1 p-8">
 
-          <AuthCard className="w-full max-w-2xl">
+          <AuthCard>
 
-            <h2 className="text-3xl font-bold text-white text-center mb-8">
+            <h2 className="text-3xl font-bold text-white text-center mb-5">
               Sign up as Vehicle Owner
             </h2>
 
-            <div className="grid grid-cols-2 gap-5">
+            <div className="grid grid-cols-2 gap-3">
 
               <UploadBox title="Driving License" />
 
@@ -65,7 +65,7 @@ export default function VehicleSignupStep4() {
 
             {/* Profile Photo */}
 
-            <div className="mt-8 flex items-center justify-between bg-[#2F4156] rounded-2xl p-5">
+            <div className="mt-5 flex items-center justify-between bg-[#2F4156] rounded-2xl p-5">
 
               <div>
 
@@ -73,13 +73,13 @@ export default function VehicleSignupStep4() {
                   Profile Picture
                 </h3>
 
-                <p className="text-gray-400 text-sm mt-2">
+                <p className="text-gray-400 text-sm mt-1">
                   Upload a clear photo of yourself.
                 </p>
 
               </div>
 
-              <label className="w-40 h-40 rounded-full border-2 border-dashed border-[#00C896] flex flex-col justify-center items-center cursor-pointer hover:bg-[#00C896]/10">
+              <label className="w-40 h-20 rounded-full border-2 border-dashed border-[#00C896] flex flex-col justify-center items-center cursor-pointer hover:bg-[#00C896]/10">
 
                 <span className="text-5xl text-[#00C896]">
                   📷
@@ -100,7 +100,7 @@ export default function VehicleSignupStep4() {
 
             {/* Buttons */}
 
-            <div className="flex gap-4 mt-8">
+            <div className="flex gap-4 mt-3">
 
               <button
                 onClick={() =>

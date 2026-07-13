@@ -17,12 +17,6 @@ export default function HotelSignupStep2() {
 
           <StepIndicator
             currentStep={2}
-            steps={[
-              "Account",
-              "Hotel",
-              "Facilities",
-              "Verification",
-            ]}
           />
 
           <AuthCard>

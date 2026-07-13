@@ -16,13 +16,13 @@ export default function VehicleSignupStep3() {
         <StepIndicator currentStep={3} totalSteps={4} />
 
         <div className="flex justify-center items-center flex-1 p-8">
-          <AuthCard className="w-full max-w-xl">
-            <h2 className="text-3xl font-bold text-white text-center mb-8">
+          <AuthCard>
+            <h2 className="text-3xl font-bold text-white text-center mb-5">
               Sign up as Vehicle Owner
             </h2>
 
             {/* Available Area */}
-            <select className="w-full h-14 rounded-full bg-[#2F4156] text-white px-5 mb-6 outline-none">
+            <select className="w-full h-14 rounded-full bg-[#2F4156] text-white px-4 mb-3 outline-none">
               <option>Available Area</option>
               <option>Colombo</option>
               <option>Galle</option>
@@ -33,7 +33,7 @@ export default function VehicleSignupStep3() {
             </select>
 
             {/* Vehicle Details */}
-            <div className="grid grid-cols-2 gap-4 mb-5">
+            <div className="grid grid-cols-2 gap-4 mb-4">
               <div>
                 <label className="text-gray-300 text-sm block mb-2">
                   Passenger Capacity
@@ -42,7 +42,7 @@ export default function VehicleSignupStep3() {
                 <input
                   type="number"
                   placeholder="4"
-                  className="w-full h-12 rounded-full bg-[#2F4156] px-5 text-white outline-none"
+                  className="w-full h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none"
                 />
               </div>
 
@@ -54,16 +54,16 @@ export default function VehicleSignupStep3() {
                 <input
                   type="number"
                   placeholder="2"
-                  className="w-full h-12 rounded-full bg-[#2F4156] px-5 text-white outline-none"
+                  className="w-full h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none"
                 />
               </div>
 
               <div>
-                <label className="text-gray-300 text-sm block mb-2">
+                <label className="text-gray-300 text-sm block mb-1">
                   Fuel Type
                 </label>
 
-                <select className="w-full h-12 rounded-full bg-[#2F4156] text-white px-5 outline-none">
+                <select className="w-full h-14 rounded-full bg-[#2F4156] text-white px-5 outline-none">
                   <option>Petrol</option>
                   <option>Diesel</option>
                   <option>Hybrid</option>
@@ -72,11 +72,11 @@ export default function VehicleSignupStep3() {
               </div>
 
               <div>
-                <label className="text-gray-300 text-sm block mb-2">
+                <label className="text-gray-300 text-sm block mb-1">
                   Air Conditioning
                 </label>
 
-                <select className="w-full h-12 rounded-full bg-[#2F4156] text-white px-5 outline-none">
+                <select className="w-full h-14 rounded-full bg-[#2F4156] text-white px-5 outline-none">
                   <option>Yes</option>
                   <option>No</option>
                 </select>
@@ -84,16 +84,16 @@ export default function VehicleSignupStep3() {
             </div>
 
             {/* Upload Photos */}
-            <div className="bg-[#2F4156] rounded-2xl p-5 mb-8">
+            <div className="bg-[#2F4156] rounded-2xl p-5 mb-3">
               <h3 className="text-white font-semibold mb-1">
                 Add Vehicle Photos
               </h3>
 
-              <p className="text-gray-400 text-sm mb-4">
+              <p className="text-gray-400 text-sm mb-0.5">
                 Upload your vehicle images
               </p>
 
-              <label className="border-2 border-dashed border-[#4A5C6A] rounded-xl h-44 flex flex-col items-center justify-center cursor-pointer hover:border-[#00C896] transition">
+              <label className="border-2 border-dashed border-[#4A5C6A] rounded-xl h-24 flex flex-col items-center justify-center cursor-pointer hover:border-[#00C896] transition">
                 <span className="text-5xl text-[#00C896] mb-2">⬆</span>
 
                 <span className="text-gray-300">
