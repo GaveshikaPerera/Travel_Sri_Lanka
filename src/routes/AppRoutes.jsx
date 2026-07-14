@@ -13,7 +13,12 @@ import GuideMessagePage from "../pages/Guides/GuideMessagePage";
 
 import ToursPage from "../pages/Tours/ToursPage";
 import TourDetailsPage from "../pages/Tours/TourDetailsPage";
+
 import TransportPage from "../pages/Transport/TransportPage";
+import VehicleListPage from "../pages/Transport/VehicleListPage";
+import VehicleDetailsPage from "../pages/Transport/VehicleDetailsPage";
+import BookingSuccessPage from "../pages/Transport/BookingSuccessPage";
+
 import DestinationCategoryPage from "../pages/Destinations/DestinationCategoryPage";
 import DestinationDetailsPage from "../pages/Destinations/DestinationDetailsPage";  
 
@@ -63,7 +68,24 @@ const AppRoutes = () => {
 
         <Route path="/tours" element={<ToursPage />} />
         <Route path="/tours/:id" element={<TourDetailsPage />} />
+
         <Route path="/transport" element={<TransportPage />} />
+
+        <Route
+          path="/transport/vehicles/:type"
+          element={<VehicleListPage />}
+        />
+
+        <Route
+          path="/transport/booking/:id"
+          element={<VehicleDetailsPage />}
+        />
+
+        <Route
+          path="/transport/booking-success/:id"
+          element={<BookingSuccessPage />}
+        />
+        
         <Route path="/destinations/:category" element={<DestinationCategoryPage />} />
         <Route path="/destinations/:category/:id" element={<DestinationDetailsPage />} />
 
