@@ -14,7 +14,7 @@ export default function GuideSignupStep4() {
         Upload PDF / JPG / PNG
       </p>
 
-      <label className="border-2 border-dashed border-[#4A5C6A] rounded-xl h-15 flex flex-col justify-center items-center cursor-pointer hover:border-[#00C896] duration-300">
+      <label className="border-2 border-dashed border-[#4A5C6A] rounded-xl h-30 flex flex-col justify-center items-center cursor-pointer hover:border-[#00C896] duration-300">
 
         <span className="text-2xl">⬆️</span>
 
@@ -64,28 +64,7 @@ export default function GuideSignupStep4() {
 
             </div>
 
-            {/* Profile Picture */}
-
-            <div className="mt-3">
-
-              <h3 className="text-white font-semibold mb-1">
-                Profile Picture
-              </h3>
-
-              <label className="border-2 border-dashed border-[#00C896] rounded-full w-25 h-25 flex justify-center items-center mx-auto cursor-pointer">
-
-                <span className="text-3xl">
-                  📷
-                </span>
-
-                <input
-                  type="file"
-                  className="hidden"
-                />
-
-              </label>
-
-            </div>
+           
 
             {/* Buttons */}
 

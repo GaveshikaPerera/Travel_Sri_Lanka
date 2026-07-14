@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import AuthLeftPanel from "../../../components/auth/AuthLeftPanel";
 import AuthCard from "../../../components/auth/AuthCard";
@@ -5,6 +6,63 @@ import StepIndicator from "../../../components/auth/StepIndicator";
 
 export default function GuideSignupStep2() {
   const navigate = useNavigate();
+
+  const districts = {
+    Western: [
+      "Colombo",
+      "Gampaha",
+      "Kalutara",
+    ],
+
+    Central: [
+      "Kandy",
+      "Matale",
+      "Nuwara Eliya",
+    ],
+
+    Southern: [
+      "Galle",
+      "Matara",
+      "Hambantota",
+    ],
+
+    Northern: [
+      "Jaffna",
+      "Kilinochchi",
+      "Mannar",
+      "Mullaitivu",
+      "Vavuniya",
+    ],
+
+    Eastern: [
+      "Trincomalee",
+      "Batticaloa",
+      "Ampara",
+    ],
+
+    "North Western": [
+      "Kurunegala",
+      "Puttalam",
+    ],
+
+    "North Central": [
+      "Anuradhapura",
+      "Polonnaruwa",
+    ],
+
+    Uva: [
+      "Badulla",
+      "Monaragala",
+    ],
+
+    Sabaragamuwa: [
+      "Ratnapura",
+      "Kegalle",
+    ],
+  };
+
+  const [province, setProvince] = useState("");
+  const [district, setDistrict] = useState("");
 
   return (
     <div className="min-h-screen bg-[#11212D] flex">
@@ -33,43 +91,51 @@ export default function GuideSignupStep2() {
 
             {/* Province & District */}
 
-            <div className="grid grid-cols-2 gap-4 mb-3">
+            <select
+                value={province}
+                onChange={(e) => {
+                  setProvince(e.target.value);
+                  setDistrict("");
+                }}
+                className="w-full h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none mb-3"
+              >
+                <option value="">Province</option>
 
-              <select className="h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none">
-                <option>Province</option>
+                <option value="Western">Western</option>
+                <option value="Central">Central</option>
+                <option value="Southern">Southern</option>
+                <option value="Northern">Northern</option>
+                <option value="Eastern">Eastern</option>
+                <option value="North Western">North Western</option>
+                <option value="North Central">North Central</option>
+                <option value="Uva">Uva</option>
+                <option value="Sabaragamuwa">Sabaragamuwa</option>
               </select>
 
-              <select className="h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none">
-                <option>District</option>
-              </select>
+              <select
+                  value={district}
+                  onChange={(e) => setDistrict(e.target.value)}
+                  disabled={!province}
+                  className="w-full h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none mb-3"
+                >
+                  <option value="">
+                    {province ? "District" : "Select Province First"}
+                  </option>
 
-            </div>
+                  {province &&
+                    districts[province].map((districtName) => (
+                      <option
+                        key={districtName}
+                        value={districtName}
+                      >
+                        {districtName}
+                      </option>
+                    ))}
+                </select>
 
-            {/* Experience & Rate */}
+           
 
-            <div className="grid grid-cols-2 gap-4 mb-3">
-
-              <input
-                type="number"
-                placeholder="Years of Experience"
-                className="h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none"
-              />
-
-              <input
-                type="number"
-                placeholder="Daily Rate (LKR)"
-                className="h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none"
-              />
-
-            </div>
-
-            {/* Languages */}
-
-            <input
-              type="text"
-              placeholder="Languages (English, Sinhala...)"
-              className="w-full h-14 rounded-full bg-[#2F4156] px-5 text-white outline-none mb-5"
-            />
+            
 
             {/* Description */}
 
