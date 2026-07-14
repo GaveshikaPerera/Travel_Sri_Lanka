@@ -1,6 +1,6 @@
 import { useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { MapPin, Users } from "lucide-react";
-
+import Navbar from "../../components/Navbar";
+import VehicleCard from "../../components/Transport/VehicleCard";
 import { vehicles } from "../../data/vehicles";
 
 export default function VehicleListPage() {
@@ -33,7 +33,6 @@ export default function VehicleListPage() {
         {filteredVehicles.length === 0 ? (
           <div className="mx-auto mt-20 max-w-[520px] rounded-[18px] bg-[#213847] p-8 text-center">
             <h2 className="text-2xl font-bold">No suitable vehicles available</h2>
-
             <p className="mt-2 text-[#cbd6dc]">
               Please reduce passengers/bags or choose another service.
             </p>
@@ -48,45 +47,11 @@ export default function VehicleListPage() {
         ) : (
           <div className="grid grid-cols-4 justify-between gap-y-9 max-xl:grid-cols-3 max-xl:justify-center max-xl:gap-9 max-lg:grid-cols-1">
             {filteredVehicles.map((vehicle) => (
-              <article
+              <VehicleCard
                 key={vehicle.id}
-                className="h-[306px] w-56 overflow-hidden rounded-[18px] bg-[#213847]"
-              >
-                <div className="grid h-[148px] place-items-center bg-white">
-                  <img
-                    src={vehicle.image}
-                    alt={vehicle.name}
-                    className="h-[110px] w-[190px] object-contain"
-                  />
-                </div>
-
-                <div className="flex h-[158px] flex-col px-4 py-2.5">
-                  <h3 className="text-[13px] font-black text-white">
-                    {vehicle.name}
-                  </h3>
-
-                  <p className="mt-1 flex items-center gap-1 text-[11px] text-[#d9e3e7]">
-                    <Users size={13} className="text-[#00d1a3]" />
-                    {vehicle.passengers} Passengers
-                  </p>
-
-                  <p className="mt-1 flex items-center gap-1 text-[11px] text-[#d9e3e7]">
-                    <MapPin size={13} className="text-[#00d1a3]" />
-                    {vehicle.location}
-                  </p>
-
-                  <h4 className="mt-2 text-[11px] font-black text-[#00d1a3]">
-                    LKR {vehicle.price.toLocaleString()}
-                  </h4>
-
-                  <button
-                    onClick={() => openBooking(vehicle.id)}
-                    className="mt-auto h-[31px] rounded-[22px] bg-[#00c99b] font-black text-white hover:bg-[#00b98f]"
-                  >
-                    Book Now
-                  </button>
-                </div>
-              </article>
+                vehicle={vehicle}
+                onBook={() => openBooking(vehicle.id)}
+              />
             ))}
           </div>
         )}
