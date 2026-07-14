@@ -20,7 +20,6 @@ import DestinationDetailsPage from "../pages/Destinations/DestinationDetailsPage
 import AboutUsPage from "../pages/AboutUsPage";
 import ContactUsPage from "../pages/ContactUsPage";
 
-import AdminPage from "../pages/AdminPage";
 
 import LoginPage from "../pages/auth/LoginPage";
 import SignupTypePage from "../pages/auth/SignupTypePage";
@@ -36,6 +35,7 @@ import HotelSignupStep4 from "../pages/auth/hotel/HotelSignupStep4";
 
 import HotelDashboard from "../pages/Hotels/dashboard/HotelDashboard";
 
+import AdminDashboard from "../pages/Admin/AdminDashboard";
 
 const AppRoutes = () => {
   return (
@@ -76,7 +76,7 @@ const AppRoutes = () => {
 
     
 
-      <Route path="/admin/*" element={<AdminPage />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
       
       <Route path="/hotel/dashboard" element={<HotelDashboard />} />
      
