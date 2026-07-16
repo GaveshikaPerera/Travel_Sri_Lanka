@@ -56,7 +56,6 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Desktop Buttons */}
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/login"
