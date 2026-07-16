@@ -59,11 +59,12 @@ const Navbar = () => {
           <div className="hidden lg:flex items-center gap-3">
             <Link
               to="/login"
-              
+
               className="px-5 py-2 rounded-full border border-[#00C896] text-white text-[12px] hover:bg-[#00C896] transition duration-300"
             >
               Sign In
             </Link>
+            
 
             <Link
               to="/register-role"
