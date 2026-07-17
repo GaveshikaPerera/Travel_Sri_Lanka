@@ -8,17 +8,17 @@ import {
   Star,
   Wallet,
 } from "lucide-react";
-import Sidebar from "../../../components/VehicleOwner/dashboard/Sidebar";
-import Topbar from "../../../components/VehicleOwner/dashboard/Topbar";
-import DashboardCard from "../../../components/VehicleOwner/dashboard/DashboardCard";
-import VehicleTable from "../../../components/VehicleOwner/dashboard/VehicleTable";
-import ReviewsPanel from "../../../components/VehicleOwner/dashboard/ReviewsPanel";
+import Sidebar from "../../../../components/Transport/VehicleOwner/dashboard/Sidebar";
+import Topbar from "../../../../components/Transport/VehicleOwner/dashboard/Topbar";
+import DashboardCard from "../../../../components/Transport/VehicleOwner/dashboard/DashboardCard";
+import VehicleTable from "../../../../components/Transport/VehicleOwner/dashboard/VehicleTable";
+import ReviewsPanel from "../../../../components/Transport/VehicleOwner/dashboard/ReviewsPanel";
 
-import carImg from "../../../assets/car.png";
-import vanImg from "../../../assets/van.png";
-import busImg from "../../../assets/bus.png";
-import driverImg from "../../../assets/driver.jpg";
-import reviewerImg from "../../../assets/reviewer.jpg";
+import carImg from "../../../../assets/transport/car.png";
+import vanImg from "../../../../assets/transport/van.png";
+import busImg from "../../../../assets/transport/bus.png";
+import driverImg from "../../../../assets/transport/driver.jpg";
+import reviewerImg from "../../../../assets/transport/reviewer.jpg";
 
 const initialVehicles = [
   {
@@ -358,18 +358,22 @@ function MessagesPanel({ messages, reply, setReply, sendReply }) {
 }
 
 function BusinessSettings() {
+  const inputClass =
+    "w-full rounded-xl border-0 bg-[#3c5261] px-3.5 py-3 text-white outline-none";
+
   return (
     <section className="mt-7 rounded-2xl bg-[#213847] p-5">
       <h2 className="mb-4 text-2xl font-black">Business Settings</h2>
 
       <div className="grid grid-cols-2 gap-3 max-lg:grid-cols-1">
-        <input defaultValue="Shantha Travels" className="inputStyle" />
-        <input defaultValue="0773254671" className="inputStyle" />
-        <input defaultValue="shantha@gmail.com" className="inputStyle" />
-        <input defaultValue="Colombo, Sri Lanka" className="inputStyle" />
+        <input defaultValue="Shantha Travels" className={inputClass} />
+        <input defaultValue="0773254671" className={inputClass} />
+        <input defaultValue="shantha@gmail.com" className={inputClass} />
+        <input defaultValue="Colombo, Sri Lanka" className={inputClass} />
+
         <textarea
           defaultValue="Professional vehicle service for tours and airport transfers."
-          className="inputStyle col-span-2 h-28 resize-none max-lg:col-span-1"
+          className="col-span-2 h-28 w-full resize-none rounded-xl border-0 bg-[#3c5261] px-3.5 py-3 text-white outline-none max-lg:col-span-1"
         />
       </div>
     </section>
