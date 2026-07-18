@@ -119,7 +119,7 @@ const AppRoutes = () => {
       <Route path="/admin/*" element={<AdminPage />} />
       
       <Route path="/hotel/dashboard" element={<HotelDashboard />} />
-      <Route path="/Transport/VehicleOwner/Dashboard" element={<VehicleOwnerDashboard />} />
+      <Route path="/Transport/VehicleOwner/dashboard" element={<VehicleOwnerDashboard />} />
      
     </Routes>
   );
