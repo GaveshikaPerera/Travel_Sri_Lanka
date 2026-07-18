@@ -4,9 +4,9 @@ import Topbar from "../../components/Guides/dashboard/Topbar";
 import DashboardCards from "../../components/Guides/dashboard/cards/DashboardCards";
 import BookingTable from "../../components/Guides/dashboard/bookings/BookingTable";
 import TourManagement from "../../components/Guides/dashboard/tours/TourManagement";
+import AvailabilityCalendar from "../../components/Guides/dashboard/availability/AvailabilityCalendar"; 
 
-// These components will be created later
-// import AvailabilitySection from "../../components/Guides/dashboard/availability/AvailabilitySection";
+
 // import MessageSection from "../../components/Guides/dashboard/messages/MessageSection";
 // import ProfileSection from "../../components/Guides/dashboard/profile/ProfileSection";
 // import ReviewSection from "../../components/Guides/dashboard/reviews/ReviewSection";
@@ -38,12 +38,7 @@ export default function GuideDashboard() {
 
         {/* Availability */}
         <section id="availability" className="mt-10 scroll-mt-24">
-          <div className="bg-[#243342] rounded-2xl p-10 text-center text-gray-400">
-            <h2 className="text-2xl font-semibold text-white mb-2">
-              Availability
-            </h2>
-            <p>Availability Calendar will be added here.</p>
-          </div>
+          <AvailabilityCalendar />
         </section>
 
         {/* Messages */}
