@@ -3,20 +3,20 @@ export default function MessageBubble({ message }) {
 
   return (
     <div
-      className={`flex mb-5 ${
+      className={`flex mb-4 ${
         isGuide ? "justify-end" : "justify-start"
       }`}
     >
       <div
-        className={`max-w-md px-5 py-3 rounded-2xl ${
+        className={`max-w-[70%] rounded-2xl px-4 py-3 shadow-md ${
           isGuide
-            ? "bg-[#00C896] text-white"
-            : "bg-[#314158] text-white"
+            ? "bg-[#00C896] text-white rounded-br-md"
+            : "bg-[#314158] text-white rounded-bl-md"
         }`}
       >
-        <p>{message.text}</p>
+        <p className="text-sm leading-6">{message.text}</p>
 
-        <p className="text-xs opacity-70 mt-2 text-right">
+        <p className="text-[11px] text-right mt-2 opacity-70">
           {message.time}
         </p>
       </div>
