@@ -1,13 +1,12 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import {
   CalendarCheck,
   CheckCircle,
   ClipboardCheck,
   MessageCircle,
   Send,
-  Star,
-  Wallet,
 } from "lucide-react";
+
 import Sidebar from "../../../../components/Transport/VehicleOwner/dashboard/Sidebar";
 import Topbar from "../../../../components/Transport/VehicleOwner/dashboard/Topbar";
 import DashboardCard from "../../../../components/Transport/VehicleOwner/dashboard/DashboardCard";
@@ -77,6 +76,12 @@ const bookingRequests = [
   },
 ];
 
+const vehicleImages = {
+  Car: carImg,
+  Van: vanImg,
+  Bus: busImg,
+};
+
 export default function VehicleOwnerDashboard() {
   const [active, setActive] = useState("Dashboard");
   const [vehicles, setVehicles] = useState(initialVehicles);
@@ -86,14 +91,35 @@ export default function VehicleOwnerDashboard() {
     { from: "Customer", text: "Can you pick us from airport tomorrow?" },
     { from: "You", text: "Yes, please send arrival time." },
   ]);
+  const sectionRefs = useRef({});
 
   const pendingBookings = bookings.filter((item) => item.status === "Pending");
   const availableVehicles = vehicles.filter((item) => item.status === "Available");
+
+  const scrollToSection = (sectionName) => {
+    setActive(sectionName);
+    sectionRefs.current[sectionName]?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
+  };
 
   const updateVehicleStatus = (id, status) => {
     setVehicles((prev) =>
       prev.map((item) => (item.id === id ? { ...item, status } : item))
     );
+  };
+
+  const addVehicle = (vehicle) => {
+    setVehicles((prev) => [
+      ...prev,
+      {
+        id: Date.now(),
+        ...vehicle,
+        status: "Pending Approval",
+        image: vehicleImages[vehicle.type] || carImg,
+      },
+    ]);
   };
 
   const updateBookingStatus = (id, status) => {
@@ -115,92 +141,117 @@ export default function VehicleOwnerDashboard() {
   return (
     <main className="min-h-screen bg-[#071923] text-white">
       <div className="grid grid-cols-[260px_1fr] max-lg:grid-cols-1">
-        <Sidebar active={active} setActive={setActive} onLogout={logout} />
+        <Sidebar active={active} setActive={scrollToSection} onLogout={logout} />
 
         <section className="p-7 max-lg:p-4">
-          <Topbar title={active} ownerImage={driverImg} />
+          <div
+            ref={(node) => (sectionRefs.current.Dashboard = node)}
+            className="scroll-mt-7"
+          >
+            <Topbar title={active} ownerImage={driverImg} />
 
-          {active === "Dashboard" && (
-            <>
-              <section className="mt-7">
-                <h2 className="mb-4 text-2xl font-black">Priority Center</h2>
+            <section className="mt-7">
+              <h2 className="mb-4 text-2xl font-black">Priority Center</h2>
 
-                <div className="grid grid-cols-4 gap-4 max-xl:grid-cols-2 max-md:grid-cols-1">
-                  <DashboardCard
-                    icon={<CalendarCheck />}
-                    value={pendingBookings.length}
-                    title="New booking requests"
-                    subtitle="Confirm today"
-                    onClick={() => setActive("Bookings")}
-                  />
-                  <DashboardCard
-                    icon={<MessageCircle />}
-                    value="2"
-                    title="Unread messages"
-                    subtitle="Reply customers"
-                    onClick={() => setActive("Messages")}
-                  />
-                  <DashboardCard
-                    icon={<ClipboardCheck />}
-                    value="80%"
-                    title="Verification status"
-                    subtitle="Upload pending files"
-                    onClick={() => setActive("Verification")}
-                  />
-                  <DashboardCard
-                    icon={<CheckCircle />}
-                    value={`${availableVehicles.length}/${vehicles.length}`}
-                    title="Available vehicles"
-                    subtitle="One in maintenance"
-                    onClick={() => setActive("Vehicles")}
-                  />
-                </div>
-              </section>
+              <div className="grid grid-cols-4 gap-4 max-xl:grid-cols-2 max-md:grid-cols-1">
+                <DashboardCard
+                  icon={<CalendarCheck />}
+                  value={pendingBookings.length}
+                  title="New booking requests"
+                  subtitle="Confirm today"
+                  onClick={() => scrollToSection("Bookings")}
+                />
+                <DashboardCard
+                  icon={<MessageCircle />}
+                  value="2"
+                  title="Unread messages"
+                  subtitle="Reply customers"
+                  onClick={() => scrollToSection("Messages")}
+                />
+                <DashboardCard
+                  icon={<ClipboardCheck />}
+                  value="80%"
+                  title="Verification status"
+                  subtitle="Upload pending files"
+                  onClick={() => scrollToSection("Verification")}
+                />
+                <DashboardCard
+                  icon={<CheckCircle />}
+                  value={`${availableVehicles.length}/${vehicles.length}`}
+                  title="Available vehicles"
+                  subtitle="One in maintenance"
+                  onClick={() => scrollToSection("Vehicles")}
+                />
+              </div>
+            </section>
 
-              <section className="mt-5 grid grid-cols-4 gap-4 max-xl:grid-cols-2 max-md:grid-cols-1">
-                <Stat value="190" title="Total Bookings" />
-                <Stat value="4.8/5" title="Average Rating" />
-                <Stat value="144" title="Published Reviews" />
-                <Stat value="LKR 328K" title="Monthly Earnings" />
-              </section>
+            <section className="mt-5 grid grid-cols-4 gap-4 max-xl:grid-cols-2 max-md:grid-cols-1">
+              <Stat value="190" title="Total Bookings" />
+              <Stat value="4.8/5" title="Average Rating" />
+              <Stat value="144" title="Published Reviews" />
+              <Stat value="LKR 328K" title="Monthly Earnings" />
+            </section>
+          </div>
 
-              <BookingsPanel bookings={bookings} updateBookingStatus={updateBookingStatus} />
-              <BookingOverview />
-              <ProfileCompletion />
-              <VehicleTable vehicles={vehicles} onStatusChange={updateVehicleStatus} />
-              <ReviewsPanel reviewerImage={reviewerImg} />
-              <MessagesPanel
-                messages={messages}
-                reply={reply}
-                setReply={setReply}
-                sendReply={sendReply}
-              />
-              <BusinessSettings />
-              <ProfileDocuments />
-            </>
-          )}
+          <div
+            ref={(node) => (sectionRefs.current.Bookings = node)}
+            className="scroll-mt-7"
+          >
+            <BookingsPanel
+              bookings={bookings}
+              updateBookingStatus={updateBookingStatus}
+            />
+          </div>
 
-          {active === "Bookings" && (
-            <BookingsPanel bookings={bookings} updateBookingStatus={updateBookingStatus} />
-          )}
+          <BookingOverview />
+          <ProfileCompletion />
 
-          {active === "Vehicles" && (
-            <VehicleTable vehicles={vehicles} onStatusChange={updateVehicleStatus} />
-          )}
+          <div
+            ref={(node) => (sectionRefs.current.Vehicles = node)}
+            className="scroll-mt-7"
+          >
+            <VehicleTable
+              vehicles={vehicles}
+              onStatusChange={updateVehicleStatus}
+              onAddVehicle={addVehicle}
+            />
+          </div>
 
-          {active === "Messages" && (
+          <div
+            ref={(node) => (sectionRefs.current.Reviews = node)}
+            className="scroll-mt-7"
+          >
+            <ReviewsPanel reviewerImage={reviewerImg} />
+          </div>
+
+          <div
+            ref={(node) => (sectionRefs.current.Messages = node)}
+            className="scroll-mt-7"
+          >
             <MessagesPanel
               messages={messages}
               reply={reply}
               setReply={setReply}
               sendReply={sendReply}
             />
-          )}
+          </div>
 
-          {active === "Reviews" && <ReviewsPanel reviewerImage={reviewerImg} />}
-          {active === "Profile" && <ProfileDocuments />}
-          {active === "Verification" && <ProfileDocuments />}
-          {active === "Settings" && <BusinessSettings />}
+          <div
+            ref={(node) => (sectionRefs.current.Settings = node)}
+            className="scroll-mt-7"
+          >
+            <BusinessSettings />
+          </div>
+
+          <div
+            ref={(node) => {
+              sectionRefs.current.Profile = node;
+              sectionRefs.current.Verification = node;
+            }}
+            className="scroll-mt-7"
+          >
+            <ProfileDocuments />
+          </div>
         </section>
       </div>
     </main>
@@ -235,47 +286,42 @@ function BookingsPanel({ bookings, updateBookingStatus }) {
           </thead>
 
           <tbody>
-            {bookings.map((item) => (
-              <tr key={item.id} className="border-t border-white/10">
-                <td className="py-3">{item.customer}</td>
-                <td>{item.trip}</td>
-                <td>{item.vehicle}</td>
-                <td>{item.date}</td>
-                <td>
-                  <span
-                    className={`rounded-full px-3 py-1 text-xs ${
-                      item.status === "Confirmed"
-                        ? "bg-[#00c99b]/20 text-[#00d1a3]"
-                        : item.status === "Rejected"
-                        ? "bg-red-500/20 text-red-300"
-                        : "bg-yellow-400/20 text-yellow-300"
-                    }`}
-                  >
-                    {item.status}
-                  </span>
-                </td>
-                <td>
-                  {item.status === "Pending" ? (
-                    <div className="flex gap-2">
-                      <button
-                        onClick={() => updateBookingStatus(item.id, "Confirmed")}
-                        className="rounded-full bg-[#00c99b] px-3 py-1 font-bold"
-                      >
-                        Confirm
-                      </button>
-                      <button
-                        onClick={() => updateBookingStatus(item.id, "Rejected")}
-                        className="rounded-full bg-[#96313d] px-3 py-1 font-bold"
-                      >
-                        Reject
-                      </button>
-                    </div>
-                  ) : (
-                    <span className="text-[#b9c6cc]">Done</span>
-                  )}
-                </td>
-              </tr>
-            ))}
+            {bookings.map((item) => {
+              const statusClass =
+                item.status === "Confirmed"
+                  ? "bg-[#00c99b]/20 text-[#00d1a3]"
+                  : item.status === "Rejected"
+                  ? "bg-red-500/20 text-red-300"
+                  : "bg-yellow-400/20 text-yellow-300";
+
+              return (
+                <tr key={item.id} className="border-t border-white/10">
+                  <td className="py-3">{item.customer}</td>
+                  <td>{item.trip}</td>
+                  <td>{item.vehicle}</td>
+                  <td>{item.date}</td>
+                  <td>
+                    <span className={`rounded-full px-3 py-1 text-xs ${statusClass}`}>
+                      {item.status}
+                    </span>
+                  </td>
+                  <td>
+                    <select
+                      value={item.status}
+                      onChange={(event) =>
+                        updateBookingStatus(item.id, event.target.value)
+                      }
+                      className="rounded-full bg-[#3c5261] px-3 py-1 font-bold outline-none [&_option]:text-black"
+                      aria-label={`Edit ${item.customer} booking status`}
+                    >
+                      <option>Pending</option>
+                      <option>Confirmed</option>
+                      <option>Rejected</option>
+                    </select>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
@@ -313,7 +359,7 @@ function ProfileCompletion() {
       </div>
 
       <p className="mt-2 text-[#b9c6cc]">
-        80% completed. Insurance certificate is pending.
+        80% completed. Insurance certificate is pending admin verification.
       </p>
     </section>
   );
@@ -393,7 +439,11 @@ function ProfileDocuments() {
       <h2 className="mb-4 text-2xl font-black">Profile & Documents</h2>
 
       <div className="mb-5 flex items-center gap-4">
-        <img src={driverImg} alt="Owner" className="h-16 w-16 rounded-full object-cover" />
+        <img
+          src={driverImg}
+          alt="Owner"
+          className="h-16 w-16 rounded-full object-cover"
+        />
         <div>
           <h3 className="text-xl font-black">Shantha Mendis</h3>
           <p className="text-[#b9c6cc]">Vehicle Owner</p>
@@ -401,21 +451,29 @@ function ProfileDocuments() {
       </div>
 
       <div className="grid grid-cols-4 gap-4 max-xl:grid-cols-2 max-md:grid-cols-1">
-        {docs.map(([name, status]) => (
-          <article key={name} className="rounded-2xl bg-[#2d4250] p-4">
-            <ClipboardCheck className="text-[#00d1a3]" />
-            <strong className="mt-2 block">{name}</strong>
-            <span
-              className={`mt-2 inline-block rounded-full px-3 py-1 text-xs ${
-                status === "Verified"
-                  ? "bg-[#00c99b]/20 text-[#00d1a3]"
-                  : "bg-yellow-400/20 text-yellow-300"
-              }`}
-            >
-              {status}
-            </span>
-          </article>
-        ))}
+        {docs.map(([name, status]) => {
+          const statusClass =
+            status === "Verified"
+              ? "bg-[#00c99b]/20 text-[#00d1a3]"
+              : "bg-yellow-400/20 text-yellow-300";
+
+          return (
+            <article key={name} className="rounded-2xl bg-[#2d4250] p-4">
+              <ClipboardCheck className="text-[#00d1a3]" />
+              <strong className="mt-2 block">{name}</strong>
+              <span
+                className={`mt-2 inline-block rounded-full px-3 py-1 text-xs ${statusClass}`}
+              >
+                {status}
+              </span>
+              {status === "Pending" && (
+                <small className="mt-2 block text-[#b9c6cc]">
+                  Admin approval required
+                </small>
+              )}
+            </article>
+          );
+        })}
       </div>
     </section>
   );

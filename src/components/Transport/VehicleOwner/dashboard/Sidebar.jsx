@@ -20,6 +20,7 @@ const menuItems = [
   { name: "Verification", icon: <ClipboardCheck size={18} /> },
   { name: "Settings", icon: <Settings size={18} /> },
 ];
+import logoImg from "../../../../assets/logo.png";
 
 export default function Sidebar({ active, setActive, onLogout }) {
   return (
