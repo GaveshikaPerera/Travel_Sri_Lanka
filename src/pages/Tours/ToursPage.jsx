@@ -1,9 +1,23 @@
-import React from 'react'
+import TourHeroSection from "../../components/tours/TourHeroSection";
+import TourSearch from "../../components/tours/TourSearch";
+import TourGrid from "../../components/tours/TourGrid";
 
-function ToursPage() {
+const ToursPage = () => {
   return (
-    <div>ToursPage</div>
-  )
-}
+    <div className="min-h-screen bg-[#11212D]">
 
-export default ToursPage
+     
+
+      <TourHeroSection />
+
+      
+
+      <TourGrid />
+
+     
+
+    </div>
+  );
+};
+
+export default ToursPage;
