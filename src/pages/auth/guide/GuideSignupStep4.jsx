@@ -80,6 +80,7 @@ export default function GuideSignupStep4() {
               </button>
 
               <button
+                onClick={() => navigate("/guide/dashboard")}
                 className="flex-1 h-14 rounded-full bg-[#00C896] hover:bg-[#00b383] text-white font-semibold"
               >
                 Save & Continue
