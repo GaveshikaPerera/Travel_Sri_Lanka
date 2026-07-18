@@ -25,9 +25,13 @@ import logoImg from "../../../../assets/logo.png";
 export default function Sidebar({ active, setActive, onLogout }) {
   return (
     <aside className="min-h-screen bg-[#213847] px-5 py-6 text-white">
-      <div className="mb-8 text-2xl font-black leading-none">
-        SRI <span className="text-[8px]">Tours for</span> LANKA
-      </div>
+      <div className="mb-8 flex items-center justify-center">
+  <img
+    src={logoImg}
+    alt="Sri Lanka Tours Logo"
+    className="h-20 w-auto object-contain"
+  />
+</div>
 
       <nav className="grid gap-2">
         {menuItems.map((item) => (
