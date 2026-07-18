@@ -50,7 +50,7 @@ import GuideSignupStep3 from "../pages/auth/guide/GuideSignupStep3";
 import GuideSignupStep4 from "../pages/auth/guide/GuideSignupStep4";  
 
 import HotelDashboard from "../pages/Hotels/dashboard/HotelDashboard";
-
+import GuideDashboard from "../pages/Guides/GuideDashboard";  
 
 const AppRoutes = () => {
   return (
@@ -70,21 +70,9 @@ const AppRoutes = () => {
         <Route path="/tours/:id" element={<TourDetailsPage />} />
 
         <Route path="/transport" element={<TransportPage />} />
-
-        <Route
-          path="/transport/vehicles/:type"
-          element={<VehicleListPage />}
-        />
-
-        <Route
-          path="/transport/booking/:id"
-          element={<VehicleDetailsPage />}
-        />
-
-        <Route
-          path="/transport/booking-success/:id"
-          element={<BookingSuccessPage />}
-        />
+        <Route path="/transport/vehicles/:type" element={<VehicleListPage />} />
+        <Route path="/transport/booking/:id" element={<VehicleDetailsPage />} />
+        <Route path="/transport/booking-success/:id" element={<BookingSuccessPage />} />
         
         <Route path="/destinations/:category" element={<DestinationCategoryPage />} />
         <Route path="/destinations/:category/:id" element={<DestinationDetailsPage />} />
@@ -119,7 +107,8 @@ const AppRoutes = () => {
       <Route path="/admin/*" element={<AdminPage />} />
       
       <Route path="/hotel/dashboard" element={<HotelDashboard />} />
-     
+      <Route path="/guide/dashboard" element={<GuideDashboard />} />  
+
     </Routes>
   );
 };
