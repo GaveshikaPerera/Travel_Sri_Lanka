@@ -50,7 +50,7 @@ import GuideSignupStep3 from "../pages/auth/guide/GuideSignupStep3";
 import GuideSignupStep4 from "../pages/auth/guide/GuideSignupStep4";  
 
 import HotelDashboard from "../pages/Hotels/dashboard/HotelDashboard";
-import VehicleOwnerDashboard from "../pages/Transport/VehicleOwner/dashboard/VehicleOwnerDashboard";
+import VehicleOwnerDashboard from "../pages/Transport/VehicleOwner/Dashboard/VehicleOwnerDashboard";
 
 const AppRoutes = () => {
   return (
@@ -119,7 +119,7 @@ const AppRoutes = () => {
       <Route path="/admin/*" element={<AdminPage />} />
       
       <Route path="/hotel/dashboard" element={<HotelDashboard />} />
-      <Route path="/Transport/VehicleOwner/dashboard" element={<VehicleOwnerDashboard />} />
+      <Route path="/Transport/VehicleOwner/Dashboard" element={<VehicleOwnerDashboard />} />
      
     </Routes>
   );
