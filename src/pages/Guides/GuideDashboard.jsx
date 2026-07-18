@@ -5,7 +5,7 @@ import DashboardCards from "../../components/Guides/dashboard/cards/DashboardCar
 import BookingTable from "../../components/Guides/dashboard/bookings/BookingTable";
 import TourManagement from "../../components/Guides/dashboard/tours/TourManagement";
 import AvailabilityCalendar from "../../components/Guides/dashboard/availability/AvailabilityCalendar"; 
-
+import MessageSection from "../../components/Guides/dashboard/messages/MessageSection"; 
 
 // import MessageSection from "../../components/Guides/dashboard/messages/MessageSection";
 // import ProfileSection from "../../components/Guides/dashboard/profile/ProfileSection";
@@ -43,12 +43,7 @@ export default function GuideDashboard() {
 
         {/* Messages */}
         <section id="messages" className="mt-10 scroll-mt-24">
-          <div className="bg-[#243342] rounded-2xl p-10 text-center text-gray-400">
-            <h2 className="text-2xl font-semibold text-white mb-2">
-              Messages
-            </h2>
-            <p>Guide messages will be displayed here.</p>
-          </div>
+          <MessageSection />
         </section>
 
         {/* Profile */}
